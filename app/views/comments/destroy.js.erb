@@ -1,0 +1,4 @@
+$('#comment-form').html("<%= j(render "comments/comment_form", post: @post, comment: @comment) %>");
+$('#comments').html("<%= j(render "comments/index", post: @post, comment: @comment) %>");
+$('#comment_count').html("<%= @post.comments.count %>")
+

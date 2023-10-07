@@ -3,11 +3,8 @@ class Public::BookmarksController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @bookmark = current_customer.bookmarks.build(post: @post)
-    pp "@bookmarks-----------------------------#{@bookmark.inspect}"
-    if @bookmark.save
-      pp "saved---------------------------------------------"
+    @bookmark.save
       render 'create'
-    end
   end
 
   def destroy

@@ -1,0 +1,52 @@
+<h1><%= @customer.name %>さんの会員情報編集</h1>
+
+    <%= form_with model: @customer, url:admin_customer_path(@customer), method: :patch, local: true do |f| %>
+      <table class='table'>
+        <tr>
+          <td>会員ID</td>
+          <td><%= @customer.id %></td>
+        </tr>
+
+        <tr>
+          <div class="field">
+            <td><%= f.label :"名前" %></td>
+            <td><%= f.text_field :name, autofocus: true %></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="field">
+            <td><%= f.label :"プロフィール" %></td>
+            <td><%= f.text_field :profile, autofocus: true %></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="field">
+            <td><%= f.label :"エリア" %></td>
+            <td><%= f.text_field :area, autofocus: true %></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="field">
+            <td><%= f.label :"メールアドレス" %></td>
+            <td><%= f.email_field :email, autofocus: true, autocomplete: "email", size:'30' %></td>
+          </div>
+        </tr>
+
+
+        <div class="form-group">
+          <td><%= f.label :会員ステータス %></td>
+          <td>
+            <%= f.radio_button :is_deleted, :false %>
+            <%= f.label :is_deleted, "有効" %>
+            <%= f.radio_button :is_deleted, :true %>
+            <%= f.label :is_deleted, "退会" %><br />
+          </td>
+        </div>
+      </table>
+    <div align="center">
+      <%= f.submit "変更を保存", class: 'btn btn-success' %>
+    </div>
+  <% end %>

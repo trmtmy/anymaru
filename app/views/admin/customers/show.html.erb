@@ -1,0 +1,9 @@
+<h3>コメント一覧</h3>
+
+
+<% @customer.comments.each do |comment| %>
+
+  <%= comment.comment %>
+  <%= link_to '削除',admin_customer_path(@customer), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
+<% end %>
+

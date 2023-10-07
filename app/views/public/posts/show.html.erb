@@ -26,13 +26,16 @@
       <%= render "public/bookmarks/bookmark", post: @post %>
     </div>
   <br>
-    <div id="comments">
-      <%= render "public/comments/comment",  post: @post %>
-    </div>
-  <br>
+
     <div id="comment-form">
-      <%= render "public/comments/comment_form", post: @post, comment: @comment %>
+      <%= render "comments/comment_form", post: @post, comment: @comment %>
     </div>
 
-<%= link_to '削除',public_post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
-<%= link_to '一覧へ', public_posts_path, class: "btn btn-sm btn-success" %>
+    <div id="comments">
+      <%= render "comments/index", post: @post, comment: @comment %>
+    </div>
+  <br>
+  <% if @post.customer == current_customer %>
+    <%= link_to '削除',public_post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
+  <% end %>
+      <%= link_to '一覧へ', public_posts_path, class: "btn btn-sm btn-success" %>

@@ -1,13 +1,20 @@
 Rails.application.routes.draw do
+
   get 'homes/top'
   root to: 'homes#top'
   get "search" => "searches#search"
   get 'homes/notes'
 
+
+  namespace :admin do
+    resources :customers, only: [:index, :show, :edit, :update, :destroy]
+  end
+
+
   resources :posts,only: [:index,:create,:new,:show,:edit,:update,:destroy] do
     resources :comments, only: [:create, :destroy]
-
   end
+
   namespace :public do
     resources :posts,only: [:index,:create,:new,:show,:edit,:update,:destroy] do
       resource :bookmarks, only: [:create, :destroy]

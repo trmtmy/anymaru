@@ -1,0 +1,31 @@
+<h3>index</h3>
+<table class = "table">
+    <tr>
+      <th>ID</th>
+      <th>登録画像</th>
+      <th>名前</th>
+      <th>プロフィール</th>
+      <th>アドレス</th>
+      <th>エリア</th>
+      <th>コメント</th>
+      <th>ステータス</th>
+    </tr>
+
+  <% @customer.each do |customers| %>
+
+    <tr>
+      <td><%= customers.id %></td>
+      <td>
+        <%= link_to public_customer_path(customers) do %>
+        <%= image_tag customers.get_image(120,110) %>
+        <% end %>
+      </td>
+      <td><%= link_to customers.name, edit_admin_customer_path(customers.id) %></td>
+      <td><%= customers.profile %></td>
+      <td><%= customers.email %></td>
+      <td><%= customers.area %></td>
+      <td><%= link_to customers.comments.count,admin_customer_path(customers.id) %>件</td>
+      <td><%= customers.customer_status %></td>
+    </tr>
+  <% end %>
+</table>
