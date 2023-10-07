@@ -1,0 +1,15 @@
+  <% if post.bookmark_by?(current_customer) %>
+    <p>
+      <%= link_to public_post_bookmarks_path(post), method: :delete, remote: true do %>
+      <i class="fas fa-heart" aria-hidden="true" style="color: red;"></i>
+        <%= post.bookmarks.count %>
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to public_post_bookmarks_path(post), method: :post, remote: true do %>
+      <i class="fas fa-heart" aria-hidden="true"></i>
+        <%= post.bookmarks.count %>
+      <% end %>
+    </p>
+  <% end %>

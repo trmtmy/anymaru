@@ -1,0 +1,35 @@
+  <h1>index</h1>
+
+  <table class = "table">
+    <th>ユーザー</th>
+    <th>写真</th>
+    <th>投稿文</th>
+    <th>ブックマーク</th>
+    <th>カテゴリ</th>
+    <%# if @customers.is_deleted: false %>
+      <% @posts.each do |posts| %>
+
+        <tr>
+          <td><%= link_to public_customer_path(posts.customer) do %>
+            <%= image_tag posts.customer.get_image(120,110) %>
+            <% end %>
+          </td>
+
+          <td><%= link_to public_post_path(posts.id) do %>
+            <%= image_tag posts.get_post_images[0], size:'120x100' %>
+            <% end %>
+          </td>
+
+          <td><%= posts.introduction %></td>
+
+          <td>
+            <div id="bookmark_btn_<%= posts.id %>">
+              <%= render "public/bookmarks/bookmark", post: posts %>
+            </div>
+          </td>
+
+          <td><%= posts.category_i18n %></td>
+        </tr>
+      <%# end %>
+    <% end %>
+  </table>

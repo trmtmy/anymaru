@@ -1,0 +1,44 @@
+<h3><b>登録情報</b></h3>
+  <p id="notice"><%= notice %></p>
+    <h5>プロフィール画像</h5>
+      <%= image_tag @customer.get_image(350,300) %>
+  <table class = "table">
+    <tr>
+      <td>ユーザーネーム</td>
+      <td><%= @customer.name %></td>
+    </tr>
+
+    <tr>
+      <td>エリア</td>
+      <td><%= @customer.area %></td>
+    </tr>
+
+    <tr>
+      <td>プロフィール</td>
+      <td><%= @customer.profile %></td>
+    </tr>
+
+  <% if @customer == current_customer %>
+    <tr>
+      <td>メールアドレス</td>
+      <td><%= @customer.email %></td>
+    </tr>
+    </table>
+      <%= link_to "good-list", bookmarks_public_customer_path(@customer) %>
+    <br>
+      <%= link_to "編集", edit_public_customer_path(current_customer.id) %><br>
+  <% end %>
+
+
+  <h4>投稿一覧</h4>
+    <% @posts.each do |posts| %>
+      <%= link_to public_post_path(posts.id) do %>
+      <%= image_tag posts.post_images[0], size:'200x150' %>
+      <% end %>
+      <%= posts.introduction %>
+      <%= posts.category_i18n %>
+      <div id="bookmark_btn_<%= posts.id %>">
+        <%= render "public/bookmarks/bookmark", post: posts %>
+      </div>
+    <br>
+    <% end %>

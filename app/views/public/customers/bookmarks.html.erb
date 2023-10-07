@@ -1,0 +1,28 @@
+<p>いいね一覧</p>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ユーザー</th>
+          <th>投稿画像</th>
+          <th>投稿文</th>
+          <th>カテゴリー</th>
+        </tr>
+      </thead>
+
+        <tbody>
+          <% @bookmarks_posts.each do |post| %>
+          <tr>
+            <td><%= link_to public_customer_path(post.customer) do %>
+              <%= image_tag post.customer.get_image(120,110) %>
+              <% end %></td>
+            <td><%= link_to public_post_path(post.id) do %>
+              <%= image_tag post.get_post_images[0], size:'120x100' %>
+              <% end %></td>
+            <td><%= post.introduction %></td>
+            <td><%= post.category_i18n %></td>
+
+          </tr>
+          <% end %>
+        </tbody>
+      </table>

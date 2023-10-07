@@ -1,0 +1,38 @@
+<h4>投稿詳細</h4>
+
+  <p id="notice"><%= notice %></p>
+
+   <h5>写真</h5>
+    <%= image_tag @post.get_post_images[0], size:'350x300' %>
+  <br>
+<table class = "table">
+  <tr>
+    <td>投稿内容</td>
+    <td><%= @post.introduction %></td>
+    </tr>
+
+  <tr>
+    <td>カテゴリー</td>
+    <td><%= @post.category_i18n %></td>
+  </tr>
+
+  <tr>
+    <td>投稿日時</td>
+    <td><%= @post.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+  </tr>
+</table>
+
+    <div id="bookmark_btn_<%= @post.id %>">
+      <%= render "public/bookmarks/bookmark", post: @post %>
+    </div>
+  <br>
+    <div id="comments">
+      <%= render "public/comments/comment",  post: @post %>
+    </div>
+  <br>
+    <div id="comment-form">
+      <%= render "public/comments/comment_form", post: @post, comment: @comment %>
+    </div>
+
+<%= link_to '削除',public_post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
+<%= link_to '一覧へ', public_posts_path, class: "btn btn-sm btn-success" %>

@@ -1,0 +1,50 @@
+<h4>検索結果</h4>
+<table class="table table-hover table-inverse">
+
+  <!--検索対象モデルがCustomerの時 -->
+
+  <% if @range == "Customer" %>
+    <thead>
+      <th>ユーザー</th>
+      <th>名前</th>
+      <th>プロフィール</th>
+      <th>エリア</th>
+    </thead>
+      <tbody>
+        <% @customers.each do |customers| %>
+          <tr>
+            <td><%= link_to public_customer_path(customers.id) do %>
+              <%= image_tag customers.get_image(120,110) %>
+              <% end %></td>
+            <td><%= customers.name %></td>
+            <td><%= customers.profile %></td>
+            <td><%= customers.area %></td>
+          </tr>
+        <% end %>
+      </tbody>
+
+    <% else %>
+    <!--検索対象モデルがPostのとき -->
+      <thead>
+        <th>投稿写真</th>
+        <th>投稿文</th>
+        <th>カテゴリー</th>
+      </thead>
+    <tbody>
+      <% @posts.each do |posts| %>
+        <tr>
+          <td><%= image_tag posts.get_post_images[0], size:'120x100' %></td>
+          <td><%= posts.introduction %></td>
+          <td><%= posts.category_i18n %></td>
+
+          <% if current_customer.own?(board) %>
+            <%= render 'crud_menus', post: post %>
+            <% else  %>
+            <%= render 'bookmark_area', post: post %>
+
+          <%  end %>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>
