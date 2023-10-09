@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+# create動作を行う前にユーザーがログインしているかどうかを判断し、ログインしていない場合はcreateが動作しない
+before_action :authenticate_user!, only: [:create]
 
   def create
     @post = Post.find(params[:post_id])

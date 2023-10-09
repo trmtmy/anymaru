@@ -5,7 +5,6 @@ class Admin::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @comments = @customer.posts.includes(:comments)
   end
 
   def edit
@@ -13,6 +12,20 @@ class Admin::CustomersController < ApplicationController
   end
 
   def update
+    @customer = Customer.find(params[:id])
+    if @customer.update(customer_params)
+     redirect_to admin_customer_path(@customer.id)
+    else
+     @customers = Customer.all
+     render :edit
+    end
+  end
+
+  def comment_destroy
+    @customer = Customer.find(params[:customer_id])
+    @comment = @customer.comments.find(params[:comment_id])
+    @comment.destroy
+    redirect_to  admin_customers_path
   end
 
   def is_withdraw

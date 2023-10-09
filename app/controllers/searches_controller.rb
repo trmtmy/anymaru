@@ -8,9 +8,13 @@ class SearchesController < ApplicationController
         @posts = Post.looks(params[:search], params[:word])
       end
     @content = params[:content]
-
-  # @category = Post.looks(params[:search], params[:category])
-
   end
+
+  def category_search
+    # categoryテーブル内の検索を行う
+    @posts = Post.where(category: params[:category])
+    render :search
+  end
+
 
 end

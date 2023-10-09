@@ -3,11 +3,14 @@ Rails.application.routes.draw do
   get 'homes/top'
   root to: 'homes#top'
   get "search" => "searches#search"
+  get "category_search" => "searches#category_search"
   get 'homes/notes'
 
 
   namespace :admin do
-    resources :customers, only: [:index, :show, :edit, :update, :destroy]
+    resources :customers, only: [:index, :show, :edit, :update] do
+    delete 'comment_destroy/:comment_id', to: "customers#comment_destroy", as: :comment_destroy
+  end
   end
 
 

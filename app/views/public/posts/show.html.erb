@@ -9,7 +9,7 @@
   <tr>
     <td>投稿内容</td>
     <td><%= @post.introduction %></td>
-    </tr>
+  </tr>
 
   <tr>
     <td>カテゴリー</td>
@@ -21,6 +21,12 @@
     <td><%= @post.created_at.strftime('%Y/%m/%d %H:%M') %></td>
   </tr>
 </table>
+
+  <% if @post.customer == current_customer %>
+    <%= link_to public_post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' } do %>
+    <i class="fa-solid fa-trash" style="color: #d64359;"></i>
+    <% end %>
+  <% end %>
 
     <div id="bookmark_btn_<%= @post.id %>">
       <%= render "public/bookmarks/bookmark", post: @post %>
@@ -35,7 +41,5 @@
       <%= render "comments/index", post: @post, comment: @comment %>
     </div>
   <br>
-  <% if @post.customer == current_customer %>
-    <%= link_to '削除',public_post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%>
-  <% end %>
+
       <%= link_to '一覧へ', public_posts_path, class: "btn btn-sm btn-success" %>
