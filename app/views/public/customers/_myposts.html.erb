@@ -6,7 +6,7 @@
         <%= image_tag posts.post_images[0], size:'200x150',class: "img-resize, rounded mx-auto d-block", style: "object-fit: cover;" %>
         <% end %>
       </td>
-      <td class = "introduction"><%= posts.introduction %></td>
+      <td class = "introduction"><%= safe_join(posts.introduction.split("\n"),tag(:br)) %></td>
       <td class = "category">
       <i class="fa-solid fa-tag" style="color: #4771b8;"></i>
       <%= posts.category_i18n %></td>

@@ -5,8 +5,7 @@
     <table class = "table">
       <tr>
         <td class = "icon"><i class="fa-solid fa-pen" style="color: #4771b8;"></i></td>
-        <td><%= @post.introduction %>
-
+        <td><%= safe_join(@post.introduction.split("\n"),tag(:br)) %>
         <br>
 
         <div class = "clock">

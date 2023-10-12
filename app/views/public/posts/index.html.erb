@@ -14,8 +14,9 @@
             <% end %>
           </td>
 
-          <td class = "introduction"><%= posts.introduction %></td>
+          <td class = "introduction"><%= safe_join(posts.introduction.split("\n"),tag(:br)) %></td>
 
+        <br>
           <td class = "bookmark_btn">
             <div id="bookmark_btn_<%= posts.id %>">
               <%= render "public/bookmarks/bookmark", post: posts %>
