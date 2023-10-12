@@ -33,10 +33,11 @@
     <tbody>
       <% @posts.each do |post| %>
         <tr>
-          <td><%= image_tag post.get_post_images[0], size:'120x100' %></td>
+          <td><%= link_to public_post_path(post.id) do %>
+            <%= image_tag post.get_post_images[0], size:'120x100' %></td>
+          <% end %>
           <td><%= post.introduction %></td>
           <td><%= post.category_i18n %></td>
-
         </tr>
       <% end %>
     </tbody>

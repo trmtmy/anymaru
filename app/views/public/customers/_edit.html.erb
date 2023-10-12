@@ -1,4 +1,4 @@
-<h4>会員情報編集</h4>
+
 <%= form_with model: @customer,url: public_customer_path, method: :patch do |f| %>
     <table class "table table-bordered">
 
@@ -27,6 +27,13 @@
         <div class="field">
           <td><%= f.label :"エリア" %></td>
           <td><%= f.text_field :area, autofocus: true %></td>
+        </div>
+      </tr>
+
+      <tr>
+        <div class="field">
+          <td><%= f.label :"メールアドレス" %></td>
+          <td><%= f.text_field :email, autofocus: true %></td>
         </div>
       </tr>
     </table>

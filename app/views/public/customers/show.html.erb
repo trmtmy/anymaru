@@ -1,44 +1,69 @@
-<h3><b>登録情報</b></h3>
   <p id="notice"><%= notice %></p>
-    <h5>プロフィール画像</h5>
+    <div class ="profile_flex">
       <%= image_tag @customer.get_image(350,300) %>
-  <table class = "table">
-    <tr>
-      <td>ユーザーネーム</td>
-      <td><%= @customer.name %></td>
-    </tr>
+        <table class = "table">
+          <tr>
+            <td><i class="fa-solid fa-address-card" style="color: #4771b8;"></i></td>
+            <td><%= @customer.name %></td>
+          </tr>
 
-    <tr>
-      <td>エリア</td>
-      <td><%= @customer.area %></td>
-    </tr>
+          <tr>
+            <td>プロフィール</td>
+            <td><%= @customer.profile %></td>
+          </tr>
 
-    <tr>
-      <td>プロフィール</td>
-      <td><%= @customer.profile %></td>
-    </tr>
+          <tr>
+            <td>エリア</td>
+            <td><%= @customer.area %></td>
+          </tr>
 
+          <tr>
+            <td>
+               <% if @customer == current_customer %>
+                 メールアドレス
+               <% end %>
+            </td>
+            <td>
+              <% if @customer == current_customer %>
+                <%= @customer.email %>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+    </div>
+
+<br>
+
+<!-- タブ -->
+<div class="tabs">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#section1"><i class="fa-solid fa-file-pen" style="color: #3362f0;"></i></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#section2"><i class="fa-regular fa-star" style="color: orange;"></i></a>
+    </li>
   <% if @customer == current_customer %>
-    <tr>
-      <td>メールアドレス</td>
-      <td><%= @customer.email %></td>
-    </tr>
-    </table>
-      <%= link_to "good-list", bookmarks_public_customer_path(@customer) %>
-    <br>
-      <%= link_to "編集", edit_public_customer_path(current_customer.id) %><br>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#section3"><i class="fas fa-user-cog"></i></a>
+    </li>
   <% end %>
+  </ul>
 
+  <div class="tab-content">
+    <div id="section1" class="tab-pane fade show active">
+      <%= render "myposts", posts: @posts %>
+    </div>
+    <div id="section2" class="tab-pane fade">
+      <%= render "bookmarks", bookmarks_posts: @bookmarks_posts %>
+    </div>
 
-  <h4>投稿一覧</h4>
-    <% @posts.each do |posts| %>
-      <%= link_to public_post_path(posts.id) do %>
-      <%= image_tag posts.post_images[0], size:'200x150' %>
-      <% end %>
-      <%= posts.introduction %>
-      <%= posts.category_i18n %>
-      <div id="bookmark_btn_<%= posts.id %>">
-        <%= render "public/bookmarks/bookmark", post: posts %>
-      </div>
-    <br>
+    <% if @customer == current_customer %>
+    <div id="section3" class="tab-pane fade">
+      <%= render "edit", customer: @customer %>
+    </div>
     <% end %>
+  </div>
+</div>
+</div>
+<%= render "public/posts/newpost" %>

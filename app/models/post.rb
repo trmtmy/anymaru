@@ -3,7 +3,9 @@ class Post < ApplicationRecord
   belongs_to :customer
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-
+  has_many :bookmark_customers, through: :bookmarks, source: :customer
+          # ↑名称自由(分かりやすく)ブックマークを通ってカスタマーを参照する
+          # ポストをブックマークしたカスタマーを持ってこれる
   validates :introduction,presence:true
   validates :category, presence: true
 

@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+before_action :authenticate_customer!, only: [:create]
 
   def create
     @post = Post.new(post_params)
@@ -17,7 +18,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page]).per(10)
     @customers = Customer.all
   end
 

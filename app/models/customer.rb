@@ -7,6 +7,9 @@ class Customer < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :bookmarked_posts, through: :bookmarks, source: :post
+          # ↑名称自由(分かりやすく)ブックマークを通ってポストを参照する
+          # カスタマーがブックマークしたポストを持ってこれる
   has_many :comments, dependent: :destroy
 
   def customer_status

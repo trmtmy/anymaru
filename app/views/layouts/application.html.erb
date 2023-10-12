@@ -13,7 +13,7 @@
   </head>
 
   <header>
-  <%= render "layouts/header" %>
+    <%= render "layouts/header" %>
   </header>
 
   <body>
@@ -24,24 +24,28 @@
     <%= render "layouts/footer" %>
   </footer>
 
+
 <style>
+
+/*TOPページ*/
 .slider{
-    position: relative
+  position: relative
+
 }
 .about {
-    margin: -80px 0;
-    background: #FFFFFF;
-    padding: 100px 200px;
-    position: absolute
+  margin: -80px 0;
+  background: #FFFFFF;
+  padding: 100px 200px;
+  position: absolute
 }
 .flex {
   display: flex;
 }
 .purpose {
-    margin: 50px;
-    margin-top: 150px;
-    background: #BAD3FF;
-    padding: 70px 20px;
+  margin: 50px;
+  margin-top: 150px;
+  background: #BAD3FF;
+  padding: 70px 20px;
 }
 .background {
   height: 400px;
@@ -49,6 +53,92 @@
   padding: 150px;
   background: #D7EEFF;
 }
+
+/*投稿固定ボタン*/
+.fixed_btn
+{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  padding: 6px 40px;
+  border-radius: 50%;
+}
+
+/*マイページ*/
+.profile_flex{
+  display: flex;
+}
+
+.category {
+  width: 80px;
+  margin-left: 20px;
+}
+
+.bookmark_btn {
+  width: 70px;
+}
+
+.bkm-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/*投稿詳細ページ*/
+.post_flex {
+  display: flex;
+}
+
+.icon {
+  width: 50px;
+}
+
+table{
+  width: auto;
+  margin: 0px 30px 0px 30px;
+}
+
+.clock {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.category-icon {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.btn-trash {
+  display: flex;
+  flex-wrap: wrap;
+  height: 30px;
+  width:  50px;
+  margin: 0 0 0 auto;
+}
+
+/*一覧ページ*/
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+.user {
+  width: 120px;
+}
+.title-image{
+  width: 150px;
+}
+
+.introduction {
+  margin-left: 20px;
+  width: 800px;
+}
+
+.index-category{
+  margin: 0 0 0 auto;
+}
+
+
+
+/*notesページ*/
 .messege {
   color: #993333;
   text-decoration: underline;
@@ -59,15 +149,11 @@
   border: 10px outset #FFFF33;
 }
 
+/*ブックマークの部分テンプレ*/
 .count-color {
   color: orange;
 }
 
-/*.preview-box {*/
-/*  width: auto;*/
-/*  height: 400px;*/
-/*  object-fit: cover;*/
-/*}*/
 </style>
 
 </html>

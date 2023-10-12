@@ -1,11 +1,12 @@
   <% if post.bookmark_by?(current_customer) %>
     <p>
       <%= link_to public_post_bookmarks_path(post), method: :delete, remote: true do %>
-      <i class="fa-solid fa-star" aria-hidden="true" style="color: orange;"></i>
+      <i class="fa-solid fa-star fa-beat" aria-hidden="true" style="color: orange;"></i>
       <span class = "count-color">
         <%= post.bookmarks.count %>
       </span>
       <% end %>
+
     </p>
     <% else %>
     <p>

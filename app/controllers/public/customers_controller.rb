@@ -4,6 +4,7 @@ class Public::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @posts = @customer.posts
+    @bookmarks_posts = @customer.bookmarked_posts
   end
 
   def edit
@@ -37,6 +38,8 @@ class Public::CustomersController < ApplicationController
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path
   end
+
+
 
   private
 
