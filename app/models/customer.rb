@@ -50,4 +50,5 @@ class Customer < ApplicationRecord
     super && (is_deleted == false)
   end
 
+
 end

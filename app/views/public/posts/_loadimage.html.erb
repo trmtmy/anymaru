@@ -1,20 +1,22 @@
 <script>
-  function loadImage(obj)
-  {
-    var allPreview = document.getElementById('post_images');
-    var newPreview = document.createElement("p");
-    allPreview.querySelector("p").remove();
-    newPreview.setAttribute("id","preview");
-    allPreview.insertBefore(newPreview, allPreview.firstChild);
-    document.getElementById("post_images").style.display = "";
-    for (i = 0; i < obj.files.length; i++) {
-        var fileReader = new FileReader();
-        fileReader.onload = (function (e) {
-            var img = new Image();
-            img.src = e.target.result;
-            document.getElementById('preview').appendChild(img);
-        });
-      fileReader.readAsDataURL(obj.files[i]);
-    }
-  }
+document.addEventListener("DOMContentLoaded",function(){
+  const ImageList = document.getElementById("image-list");
+  if (!ImageList){ return false;}
+  document.getElementById("item-image").addEventListener("change", function(e){
+   const imageContent = document.querySelector('img');
+   if (imageContent){
+     imageContent.remove();
+   }
+
+   const file = e.target.files[0];
+   const blob = window.URL.createObjectURL(file);
+
+   const imageElement =  document.createElement('div');
+   const blobImage = document.createElement('img');
+   blobImage.setAttribute('src', blob);
+  blobImage.classList.add('preview-size');
+  imageElement.appendChild(blobImage);
+  ImageList.appendChild(imageElement);
+  });
+});
 </script>

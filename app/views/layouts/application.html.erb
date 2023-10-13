@@ -18,38 +18,56 @@
 
   <body>
     <%= yield %>
+
+    <span id="back">
+      <a href="">
+        <%= image_tag asset_path('up.png'), data: {"turbolinks"=>false}, class: "arrow" %>
+        <!--app/assets/images配下の画像を読み込む-->
+      </a>
+    </span>
   </body>
 
-  <footer>
+
     <%= render "layouts/footer" %>
-  </footer>
+
 
 
 <style>
 
 /*TOPページ*/
-.slider{
+.slider {
   position: relative
-
+  margin: 0 0 0 50px;
 }
+
+.col-9 {
+  margin: 0 auto;
+}
+
 .about {
-  margin: -80px 0;
+  opacity: 0.8;
+  /*↑透明度*/
+  box-shadow: 2px 2px 4px gray;
+  /*↑影*/
+  margin: -50px 0 0 100px ;
   background: #FFFFFF;
   padding: 100px 200px;
   position: absolute
 }
 .flex {
   display: flex;
+  margin-top: 30px;
 }
 .purpose {
   margin: 50px;
   margin-top: 150px;
   background: #BAD3FF;
   padding: 70px 20px;
+  box-shadow: 2px 2px 4px gray;
 }
 .background {
   height: 400px;
-  margin: -370px 0px 0px;
+  margin: -400px 0px 0px;
   padding: 150px;
   background: #D7EEFF;
 }
@@ -61,8 +79,9 @@
   bottom: 10px;
   right: 10px;
   padding: 6px 40px;
-  border-radius: 50%;
+  border-radius: 90%;
   margin-right: 40px;
+  box-shadow: 2px 2px 4px gray;
 }
 
 /*マイページ*/
@@ -71,16 +90,20 @@
 }
 
 .category {
-  width: 80px;
-  margin-left: 20px;
+  width: 150px;
+  padding: 10px;
+  margin: 0 0 0 auto;
 }
 
 .bookmark_btn {
-  width: 50px;
+  /*width: 50px;*/
+  padding: 10px;
+  width: auto;
+  margin: 0 0 0 auto;
 }
 
 .bkm-table {
-  width: 100%;
+  width: auto%;
   table-layout: fixed;
 }
 
@@ -91,11 +114,6 @@
 
 .icon {
   width: 50px;
-}
-
-table{
-  width: auto;
-  margin: 0px 30px 0px 30px;
 }
 
 .clock {
@@ -116,9 +134,9 @@ table{
   margin: 0 0 0 auto;
 }
 
-/*一覧ページ*/
+/*テーブル*/
 table {
-  width: 100%;
+  width: auto;
   table-layout: fixed;
 }
 .user {
@@ -129,15 +147,46 @@ table {
 }
 
 .introduction {
-  margin-left: 20px;
-  width: 800px;
+  padding: 10px 50px 10px 50px;
+  width: 900px;
 }
 
 .index-category{
-  margin: 0 0 0 auto;
+  padding: 10px 10px 10px 50px;
+  width: auto;
+
+}
+/*一覧ページ*/
+.index-flex {
+  display: flex;
 }
 
+.index-border {
+  width: 600px;
+  padding: 20px;
+  margin: 20px auto;
+  border: 2px solid #BAD3FF;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px #666699;
+  z-index: 1000;
+}
 
+.index-customer-image {
+  width: 120px;
+  padding: 0 5px 10px 5px;
+}
+
+.index-clock {
+  padding: 10px;
+}
+
+.index-bkm-btn {
+  padding: 10px;
+}
+
+.index-category {
+  padding: 10px;
+}
 
 /*notesページ*/
 .messege {
@@ -153,6 +202,31 @@ table {
 /*ブックマークの部分テンプレ*/
 .count-color {
   color: orange;
+}
+
+/*投稿プレビュー*/
+.preview-size{
+    height: 200px;
+    width: auto;
+}
+
+/*上部へのスクロールボタン*/
+#back {
+  position: fixed;
+  bottom: 20px;
+  margin: 0 0 0 20px;
+}
+.arrow{
+  width:      50px;
+  height:     50px;
+}
+
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  /*background: #EEFFFF;*/
+  box-sizing: border-box;
 }
 
 </style>

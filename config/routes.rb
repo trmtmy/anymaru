@@ -33,7 +33,9 @@ Rails.application.routes.draw do
   end
 
 
-
+  devise_scope :customer do
+    post 'customers/guest_sign_in', to: 'public/sessions#guest_sign_in'
+  end
 
   # 顧客用
   # URL /customers/sign_in ...

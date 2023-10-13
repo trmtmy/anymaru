@@ -18,7 +18,8 @@ before_action :authenticate_customer!, only: [:create]
   end
 
   def index
-    @posts = Post.all.page(params[:page]).per(10)
+    @posts = Post.all.page(params[:page]).per(10).order(created_at: :desc)
+    # ↑page～(ページネーション)order～(新着順)
     @customers = Customer.all
   end
 
@@ -41,7 +42,7 @@ before_action :authenticate_customer!, only: [:create]
   private
 
   def post_params
-    params.require(:post).permit(:introduction, :category, post_images:[])
+    params.require(:post).permit(:introduction, :category, post_images: [])
   end
 
 end

@@ -5,6 +5,19 @@ class Public::SessionsController < Devise::SessionsController
 
   before_action :reject_customer, only: [:create]
 
+  def guest_sign_in
+    customer = Customer.find_or_create_by!(email: 'guest@example.com') do |customer|
+      customer.password = SecureRandom.urlsafe_base64
+      # ↑特定されないようにランダムなパスワード
+      customer.name = "ゲスト"
+      customer.profile = "ゲストユーザーです。"
+      customer.area = "関東"
+      customer.is_deleted = false
+    end
+    sign_in customer
+    redirect_to root_path, notice: 'ゲストとしてログインしました。'
+  end
+
   protected
 
   def reject_customer
@@ -38,5 +51,4 @@ class Public::SessionsController < Devise::SessionsController
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
-  # end
 end

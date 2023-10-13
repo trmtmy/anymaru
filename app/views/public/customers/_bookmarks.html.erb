@@ -1,12 +1,4 @@
     <table class="bkm-table">
-      <thead>
-        <tr>
-          <th>ユーザー</th>
-          <th>投稿画像</th>
-          <th>投稿文</th>
-          <th>カテゴリー</th>
-        </tr>
-      </thead>
 
         <tbody>
           <% @bookmarks_posts.each do |post| %>
@@ -18,6 +10,12 @@
               <%= image_tag post.get_post_images[0], size:'120x100' %>
               <% end %></td>
             <td class = "introduction"><%= post.introduction %></td>
+           <td class = "bookmark_btn">
+            <div id="bookmark_btn_<%= post.id %>">
+              <%= render "public/bookmarks/bookmark", post: post %>
+            </div>
+          </td>
+
             <td class = "category"><%= post.category_i18n %></td>
 
           </tr>

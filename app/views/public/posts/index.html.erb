@@ -1,33 +1,42 @@
-  <table>
 
-    <%# if @customer.is_deleted: false %>
-      <% @posts.each do |posts| %>
+<%# if @customer.is_deleted: false %>
+  <% @posts.each do |posts| %>
+  <div class = "index-border">
+    <div class = "index-flex">
+      <div class = "index-customer-image">
+        <%= link_to public_customer_path(posts.customer) do %>
+          <%= image_tag posts.customer.get_image(80,80), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover;" %>
+        <% end %>
+      </div>
 
-        <tr>
-          <td class = "user"><%= link_to public_customer_path(posts.customer) do %>
-            <%= image_tag posts.customer.get_image(80,80), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover;" %>
-            <% end %>
-          </td>
+      <div class = "index-introduction">
+        <%= safe_join(posts.introduction.split("\n"),tag(:br)) %>
+      </div>
+    </div>
 
-          <td class = "title-image"><%= link_to public_post_path(posts.id), remote: true do %>
-            <%= image_tag posts.get_post_images[0], size:'150x130',class: "img-resize, rounded mx-auto d-block", style: "object-fit: cover;" %>
-            <% end %>
-          </td>
+      <div class = "index-flex">
+        <div class = "index-post-image">
+          <%= link_to public_post_path(posts.id), remote: true do %>
+            <%= image_tag posts.get_post_images[0], size:'200x180',class: "img-resize, rounded mx-auto d-block", style: "object-fit: cover;" %>
+          <% end %>
+        </div>
 
-          <td class = "introduction"><%= safe_join(posts.introduction.split("\n"),tag(:br)) %></td>
 
-        <br>
-          <td class = "bookmark_btn">
+          <div class = "index-bkm-btn">
             <div id="bookmark_btn_<%= posts.id %>">
               <%= render "public/bookmarks/bookmark", post: posts %>
             </div>
-          </td>
-
-          <td class = "index-category"><%= posts.category_i18n %></td>
-        </tr>
-      <%# end %>
+          </div>
+          <div class = "index-category">
+            <i class="fa-solid fa-tag" style="color: #4771b8;"></i>
+            <%= posts.category_i18n %>
+          </div>
+          <div class = "index-clock">
+            <%= posts.created_at.strftime('%Y/%m/%d %H:%M') %>
+          </div>
+      </div>
+  </div>
     <% end %>
-  </table>
   <%= paginate @posts %>
 
 
