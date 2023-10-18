@@ -1,6 +1,9 @@
   <p id="notice"><%= notice %></p>
-    <div class ="profile_flex">
-      <%= image_tag @customer.get_image(350,300) %>
+    <div class ="d-block d-md-flex">
+      <div class = "w-100 w-md-50">
+        <%= image_tag @customer.get_image(350,300), class: "img-fluid d-block mx-auto" %>
+      </div>
+      <div class = "w-100 w-md-50">
         <table class = "table">
           <tr>
             <td><i class="fa-solid fa-address-card" style="color: #4771b8;"></i></td>
@@ -30,12 +33,16 @@
             </td>
           </tr>
         </table>
+      </div>
     </div>
+
+
 
 <br>
 
 <!-- タブ -->
 <div class="tabs">
+  
   <ul class="nav nav-tabs">
     <li class="nav-item">
       <a class="nav-link active" data-toggle="tab" href="#section1"><i class="fa-solid fa-file-pen" style="color: #3362f0;"></i></a>
@@ -51,19 +58,21 @@
   </ul>
 
   <div class="tab-content">
-    <div id="section1" class="tab-pane fade show active">
+    <div id="section1" class="tab-pane show active">
       <%= render "myposts", posts: @posts %>
     </div>
-    <div id="section2" class="tab-pane fade">
+    <div id="section2" class="tab-pane">
       <%= render "bookmarks", bookmarks_posts: @bookmarks_posts %>
     </div>
 
     <% if @customer == current_customer %>
-    <div id="section3" class="tab-pane fade">
+    <div id="section3" class="tab-pane">
       <%= render "edit", customer: @customer %>
     </div>
     <% end %>
   </div>
 </div>
+
+
 </div>
 <%= render "public/posts/newpost" %>

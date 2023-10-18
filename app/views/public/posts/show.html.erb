@@ -1,23 +1,32 @@
-<p id="notice"><%= notice %></p>
-  <div class ="post_flex">
-    <%= image_tag @post.get_post_images[0], size:'400x400' ,class: "img-resize, rounded mx-auto d-block", style: "object-fit: cover;" %>
+<p></p>
+<div class ="d-block d-md-flex">
+　<% @post.post_images.each do |image| %>
+    <%= image_tag image, size:'400x400' ,class: "img-resize, rounded mx-auto d-block", style: "object-fit: cover;" %>
+  <% end %>
+</div>
+<span class = "border border-2">
   <br>
-    <table class = "table">
-      <tr>
-        <td class = "icon"><i class="fa-solid fa-pen" style="color: #4771b8;"></i></td>
-        <td><%= safe_join(@post.introduction.split("\n"),tag(:br)) %>
-        <br>
 
-        <div class = "clock">
-          <i class="fa-regular fa-clock" style="color: #4771b8;"></i>
-          <%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>
+        <div class = "show-introduction">
+        <%= link_to public_customer_path(@post) do %>
+          <%= image_tag @post.customer.get_image(80,80), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover; border: solid 3px #BAD3FF;" %>
+        <% end %>
+          <i class="fa-solid fa-pen" style="color: #4771b8;"></i>
+          <%= safe_join(@post.introduction.split("\n"),tag(:br)) %>
         </div>
 
+        <div class = "post-show">
 
-        <div class = "category-icon">
-          <i class="fa-solid fa-tag" style="color: #4771b8;"></i>
-          <%= @post.category_i18n %></div>
-          <div class = "btn-trash">
+          <div class = "category-icon">
+            <i class="fa-solid fa-tag" style="color: #4771b8;"></i>
+            <%= @post.category_i18n %>
+          </div>
+
+          <div class = "clock">
+            <i class="fa-regular fa-clock" style="color: #4771b8;"></i>
+            <%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>
+          </div>
+
             <div class = "bkm-btn">
               <div id="bookmark_btn_<%= @post.id %>">
                 <%= render "public/bookmarks/bookmark", post: @post %>
@@ -31,23 +40,16 @@
                 <% end %>
             </div>
           </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-    <div id="comment-form">
-      <%= render "comments/comment_form", post: @post, comment: @comment %>
-    </div>
-    </td>
-    </tr>
-    </table>
-</div>
+          <div id="comment-form">
+            <%= render "comments/comment_form", post: @post, comment: @comment %>
+          </div>
 
   <br>
 
     <div id="comments">
       <%= render "comments/index", post: @post, comment: @comment %>
     </div>
+
   <br>
 
-  <%= render "newpost" %>
+<%= render "newpost" %>

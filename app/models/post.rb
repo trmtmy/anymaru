@@ -11,6 +11,8 @@ class Post < ApplicationRecord
 
   has_many_attached :post_images
 
+
+
   def get_post_images
     unless post_images.attached?
       file_path = Rails.root.join('app/assets/images/no_image.png')
@@ -39,5 +41,16 @@ class Post < ApplicationRecord
       @post = Post.all
     end
   end
-  
+
+  FILE_NUMBER_LIMIT = 3
+
+  validate :validate_number_of_files
+
+  private
+
+  def validate_number_of_files
+      return if post_images.length <= FILE_NUMBER_LIMIT
+    errors.add(:post_images, "に添付できる画像は#{FILE_NUMBER_LIMIT}件までです。")
+  end
+
 end

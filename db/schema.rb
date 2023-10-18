@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2023_10_02_114908) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.text "introduction", default: "", null: false
+    t.text "introduction", null: false
     t.integer "category", null: false
     t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false

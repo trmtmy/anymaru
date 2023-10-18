@@ -7,228 +7,26 @@
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/0393e2e04e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
-  <header>
-    <%= render "layouts/header" %>
-  </header>
-
   <body>
+    <header>
+      <%= render "layouts/header" %>
+    </header>
     <%= yield %>
 
-    <span id="back">
-      <a href="">
-        <%= image_tag asset_path('up.png'), data: {"turbolinks"=>false}, class: "arrow" %>
-        <!--app/assets/images配下の画像を読み込む-->
-      </a>
-    </span>
+        <span id="back">
+          <a href="">
+            <%= image_tag asset_path('up.png'), data: {"turbolinks"=>false}, class: "arrow" %>
+            <!--app/assets/images配下の画像を読み込む-->
+          </a>
+        </span>
+    <footer>
+      <%= render "layouts/footer" %>
+    </footer>
   </body>
-
-
-    <%= render "layouts/footer" %>
-
-
-
-<style>
-
-/*TOPページ*/
-.slider {
-  position: relative
-  margin: 0 0 0 50px;
-}
-
-.col-9 {
-  margin: 0 auto;
-}
-
-.about {
-  opacity: 0.8;
-  /*↑透明度*/
-  box-shadow: 2px 2px 4px gray;
-  /*↑影*/
-  margin: -50px 0 0 100px ;
-  background: #FFFFFF;
-  padding: 100px 200px;
-  position: absolute
-}
-.flex {
-  display: flex;
-  margin-top: 30px;
-}
-.purpose {
-  margin: 50px;
-  margin-top: 150px;
-  background: #BAD3FF;
-  padding: 70px 20px;
-  box-shadow: 2px 2px 4px gray;
-}
-.background {
-  height: 400px;
-  margin: -400px 0px 0px;
-  padding: 150px;
-  background: #D7EEFF;
-}
-
-/*投稿固定ボタン*/
-.fixed_btn
-{
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  padding: 6px 40px;
-  border-radius: 90%;
-  margin-right: 40px;
-  box-shadow: 2px 2px 4px gray;
-}
-
-/*マイページ*/
-.profile_flex{
-  display: flex;
-}
-
-.category {
-  width: 150px;
-  padding: 10px;
-  margin: 0 0 0 auto;
-}
-
-.bookmark_btn {
-  /*width: 50px;*/
-  padding: 10px;
-  width: auto;
-  margin: 0 0 0 auto;
-}
-
-.bkm-table {
-  width: auto%;
-  table-layout: fixed;
-}
-
-/*投稿詳細ページ*/
-.post_flex {
-  display: flex;
-}
-
-.icon {
-  width: 50px;
-}
-
-.clock {
-  text-align: right;
-  margin-top: 10px;
-}
-
-.category-icon {
-  text-align: right;
-  margin-top: 10px;
-}
-
-.btn-trash {
-  display: flex;
-  flex-wrap: wrap;
-  height: 30px;
-  width:  50px;
-  margin: 0 0 0 auto;
-}
-
-/*テーブル*/
-table {
-  width: auto;
-  table-layout: fixed;
-}
-.user {
-  width: 120px;
-}
-.title-image{
-  width: 150px;
-}
-
-.introduction {
-  padding: 10px 50px 10px 50px;
-  width: 900px;
-}
-
-.index-category{
-  padding: 10px 10px 10px 50px;
-  width: auto;
-
-}
-/*一覧ページ*/
-.index-flex {
-  display: flex;
-}
-
-.index-border {
-  width: 600px;
-  padding: 20px;
-  margin: 20px auto;
-  border: 2px solid #BAD3FF;
-  border-radius: 10px;
-  box-shadow: 2px 2px 4px #666699;
-  z-index: 1000;
-}
-
-.index-customer-image {
-  width: 120px;
-  padding: 0 5px 10px 5px;
-}
-
-.index-clock {
-  padding: 10px;
-}
-
-.index-bkm-btn {
-  padding: 10px;
-}
-
-.index-category {
-  padding: 10px;
-}
-
-/*notesページ*/
-.messege {
-  color: #993333;
-  text-decoration: underline;
-}
-
-.messege-border {
-  width: 360px;
-  border: 10px outset #FFFF33;
-}
-
-/*ブックマークの部分テンプレ*/
-.count-color {
-  color: orange;
-}
-
-/*投稿プレビュー*/
-.preview-size{
-    height: 200px;
-    width: auto;
-}
-
-/*上部へのスクロールボタン*/
-#back {
-  position: fixed;
-  bottom: 20px;
-  margin: 0 0 0 20px;
-}
-.arrow{
-  width:      50px;
-  height:     50px;
-}
-
-header {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  /*background: #EEFFFF;*/
-  box-sizing: border-box;
-}
-
-</style>
-
 </html>

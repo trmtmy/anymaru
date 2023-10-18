@@ -1,1 +1,424 @@
 @use '~bootstrap/scss/bootstrap';
+
+/*----------------------------------------TOPページ*/
+.slider {
+  position: relative;
+  margin: 0 0 0 50px;
+}
+
+.col-9 {
+  margin: 0 auto;
+}
+
+.about {
+  opacity: 0.8;
+  /*↑透明度*/
+  box-shadow: 2px 2px 4px gray;
+  /*↑影*/
+  margin: -50px 0 0 100px ;
+  background: #FFFFFF;
+  padding: 100px 200px;
+  position: absolute
+}
+.flex {
+  display: flex;
+  margin-top: 30px;
+}
+.purpose {
+  margin: 50px;
+  margin-top: 150px;
+  background: #D7EEFF;
+  padding: 70px 20px;
+  box-shadow: 2px 2px 4px gray;
+  opacity: 0.8;
+  z-index: 5;
+}
+.background {
+  height: 200px;
+  margin: -200px 0px 0px;
+  padding: 150px;
+  background: #BAD3FF;
+}
+
+p.title {
+  padding: 10px;
+  width: auto;
+  border-left :solid 5px #330066;
+  border-bottom: solid 1px #330066;
+  text-align:center;
+
+}
+
+/*-------------------------------------投稿固定ボタン*/
+.fixed_btn
+{
+  width: auto;
+  position: fixed;
+  bottom: 10px;
+  right: 30px;
+  padding: 10px 30px;
+  border-radius: 90%;
+  box-shadow: 2px 2px 4px gray;
+}
+
+.fixed_btn:active {
+  box-shadow: 0px 0px 0px #a00;
+  transform: translateY(3px);
+}
+
+
+/*------------------------------------------マイページ*/
+.profile_flex{
+  display: flex;
+}
+
+.category {
+  width: 150px;
+  padding: 10px;
+  margin: 0 0 0 auto;
+}
+
+.bookmark_btn {
+  /*width: 50px;*/
+  padding: 10px;
+  width: auto;
+  margin: 0 0 0 auto;
+}
+
+.bkm-table {
+  width: auto;
+  table-layout: fixed;
+}
+
+.title-image {
+  width: 200px;
+  padding-left: 20px;
+}
+
+/*--------------------------------------------投稿ページ*/
+
+
+.post {
+  margin: 0 auto;
+
+}
+
+/*---------------------------------------投稿詳細ページ*/
+.post_flex {
+  display: flex;
+}
+
+.show-introduction {
+  width: auto;
+  padding: 10px;
+  border-top: 1px solid black;
+}
+
+.clock {
+  margin: 0 10px;
+}
+
+.category-icon {
+  margin: 0 0 0 auto;
+}
+
+.trash {
+  margin: 0 10px;
+}
+
+.post-show {
+  display: flex;
+  flex-wrap: wrap;
+  height: 30px;
+  width:  auto;
+  margin: 0 0 0 auto;
+}
+
+.comment-form {
+  width: auto;
+  margin: 20px 0 0 10px;
+}
+
+.comment{
+  width: auto;
+  height: auto;
+  margin: 0 15px 20px;
+}
+
+.time {
+  width:auto;
+  margin: 0 10px 0 0;
+}
+
+/*-----------------------------------------------テーブル*/
+table {
+  width: auto;
+  table-layout: fixed;
+}
+.user {
+  width: 120px;
+}
+.title-image{
+  width: 150px;
+}
+
+.introduction {
+  padding: 10px 50px 10px 50px;
+  width: 900px;
+}
+
+.index-category{
+  padding: 10px 10px 10px 50px;
+  width: auto;
+
+}
+/*---------------------------------------------------一覧ページ*/
+.index-flex1 {
+  display: flex;
+}
+.index-flex2 {
+  display: flex;
+}
+
+.index-border {
+  width: 700px;
+  padding: 20px;
+  margin: 20px auto;
+  border: 2px solid #BAD3FF;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px #666699;
+  z-index: 1000;
+}
+
+.index-customer-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.index-post-image {
+  object-fit: cover;
+  width: auto;
+  margin: 0 auto;
+}
+
+.index-introduction {
+  width: auto;
+  padding-left: 20px;
+}
+
+.index-clock {
+  padding: 10px 10px 0 10px;
+}
+
+.index-bkm-btn {
+  padding: 10px 10px 0 10px;
+}
+
+.index-category {
+  padding: 10px 10px 0 10px;
+}
+
+/*-----------------------------------------------------------notesページ*/
+.messege {
+  color: #993333;
+  text-decoration: underline;
+}
+
+.messege-border {
+  width: 360px;
+  border: 10px outset #FFFF33;
+}
+
+/*-----------------------------------------------------------ブックマークの部分テンプレ*/
+.count-color {
+  color: orange;
+}
+
+/*----------------------------------------------------------投稿プレビュー*/
+.preview-size {
+  height: auto;
+  width: 300px;
+  margin: 30px 0 0 50px;
+}
+
+/*-----------------------------------------------------上部へのスクロールボタン*/
+#back {
+  position: fixed;
+  bottom: 20px;
+  margin: 0 0 0 20px;
+}
+.arrow{
+  width:      50px;
+  height:     50px;
+}
+
+/*-------------------------------------------------検索画面*/
+
+.search-image {
+  width: 150px;
+  padding-left: 30px;
+}
+
+.search-category {
+  width: 200px;
+  padding: 0 0 0 80px;
+}
+
+.search-introduction {
+  width: 500px;
+  padding-left: 50px;
+}
+
+/*customer*/
+.search-name {
+  width: 200px;
+}
+
+.search-profile {
+  width: 500px;
+}
+
+.search-area {
+  width: 150px;
+}
+
+/*--------------------------------------------ヘッダー*/
+header {
+  width: auto;
+  height: 100px;
+  position: -webkit-sticky;
+  position: sticky;
+  /*↑　位置を固定*/
+  top: 0;
+  background: #F0F8FF;
+  box-sizing: border-box;
+  border-bottom: 1px solid;
+  z-index: 10000;
+}
+
+
+
+.link {
+  margin-left: 10px;
+  padding: 5px;
+  width: 200px;
+  text-align: center;
+  color: #fff;
+  /*↑文字色*/
+  background-color: #00008B;
+  border-bottom: 5px solid #191970;
+  /*↑立体部分*/
+  border-radius: 5px;
+  box-shadow: 1px 3px 4px #C0C0C0;
+}
+
+.link:active {
+  box-shadow: 0px 0px 0px #a00;
+  transform: translateY(10px);
+}
+
+.link:hover {
+  margin-top: 3px;
+  color: #fff;
+  background: #f56500;
+  border-bottom: 2px solid #b84c00;
+}
+
+.search-icon {
+  width: 30px;
+  height: auto;
+  /*margin-bottom: 8px;*/
+}
+
+.search_form-space {
+  height: 20px;
+}
+
+
+/*------------------------------------------------レスポンシブ*/
+
+@media screen and (max-width: 425px) {
+
+header {
+  width: 425px;
+}
+.fixed_btn {
+  width: auto;
+  position: fixed;
+  bottom: 30px;
+  right: 0 0 0 auto;
+  padding: 10px 30px;
+  border-radius: 90%;
+}
+
+.fixed_btn:active {
+  box-shadow: 0px 0px 0px #a00;
+  transform: translateY(3px);
+}
+
+/*---------------------一覧*/
+
+.index-border{
+  width: 410px;
+}
+
+.index-flex {
+  width: 400px;
+}
+
+.index-flex2 {
+  width: 200;
+}
+
+.index-post-image {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.index-introduction {
+  width: 280px;
+  padding-left: 20px;
+}
+
+.index-br::before {
+  content: "\A";
+  white-space: pre;
+  height: 50px;
+}
+
+.index-bkm-btn{
+  width: 100px;
+  height: 20px;
+}
+
+.index-category {
+  width: 120px;
+  height: 20px;
+}
+
+.index-clock{
+  width: 150px;
+  height: 20px;
+}
+
+// -------------------------------------詳細ページ
+
+.comment {
+  width: 200px;
+}
+
+
+/*--------------------------------マイページ*/
+.show-image {
+  width: 50px;
+}
+
+.show-table {
+  width: 350px;
+}
+
+
+
+}

@@ -8,10 +8,9 @@ before_action :authenticate_customer!, only: [:create]
       flash[:notice] = "投稿完了"
       redirect_to  public_post_path(@post)
     else
-      @books = Book.all
-      render :index
+      @posts = Post.all
+      render :new
     end
-      # @selected_category = params[:post][:category]
   end
 
   def update

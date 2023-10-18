@@ -2,10 +2,10 @@
 <%# if @customer.is_deleted: false %>
   <% @posts.each do |posts| %>
   <div class = "index-border">
-    <div class = "index-flex">
+    <div class = "index-flex1">
       <div class = "index-customer-image">
         <%= link_to public_customer_path(posts.customer) do %>
-          <%= image_tag posts.customer.get_image(80,80), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover;" %>
+          <%= image_tag posts.customer.get_image(80,80), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover; border: solid 3px #BAD3FF;" %>
         <% end %>
       </div>
 
@@ -14,27 +14,38 @@
       </div>
     </div>
 
-      <div class = "index-flex">
+    <div class = "index-br">
+      <div class = "index-flex2">
         <div class = "index-post-image">
-          <%= link_to public_post_path(posts.id), remote: true do %>
-            <%= image_tag posts.get_post_images[0], size:'200x180',class: "img-resize, rounded mx-auto d-block", style: "object-fit: cover;" %>
+
+          <%= link_to public_post_path(posts.id) do %>
+            <%= image_tag posts.get_post_images[0], size:'250x250',class: "img-resize, rounded mx-auto d-block", style: "object-fit: cover;" %>
           <% end %>
+          <% if posts.get_post_images.count >= 2 %>
+          <div class ="text-center">
+            <i class="fa-solid fa-ellipsis"></i>
+          </div>
+          <% end %>
+
         </div>
+    </div>
 
-
-          <div class = "index-bkm-btn">
-            <div id="bookmark_btn_<%= posts.id %>">
-              <%= render "public/bookmarks/bookmark", post: posts %>
+          <div class="d-flex">
+            <div class="index-bkm-btn">
+              <div id="bookmark_btn_<%= posts.id %>">
+                <%= render "public/bookmarks/bookmark", post: posts %>
+              </div>
+            </div>
+            <div class = "index-category">
+              <i class="fa-solid fa-tag" style="color: #4771b8;"></i>
+              <%= posts.category_i18n %>
+            </div>
+            <div class = "index-clock">
+              <%= posts.created_at.strftime('%Y/%m/%d %H:%M') %>
             </div>
           </div>
-          <div class = "index-category">
-            <i class="fa-solid fa-tag" style="color: #4771b8;"></i>
-            <%= posts.category_i18n %>
-          </div>
-          <div class = "index-clock">
-            <%= posts.created_at.strftime('%Y/%m/%d %H:%M') %>
-          </div>
       </div>
+
   </div>
     <% end %>
   <%= paginate @posts %>
