@@ -1,0 +1,16 @@
+      <div class="d-flex">
+        <% if customer_signed_in? %>
+        <div class="index-bkm-btn">
+          <div id="bookmark_btn_<%= posts.id %>">
+            <%= render "public/bookmarks/bookmark", post: posts %>
+          </div>
+        </div>
+        <% end %>
+        <div class = "index-category">
+          <i class="fa-solid fa-tag" style="color: #4771b8;"></i>
+          <%= posts.category_i18n %>
+         </div>
+        <div class = "index-time">
+          <%= posts.created_at.strftime('%Y/%m/%d %H:%M') %>
+        </div>
+      </div>

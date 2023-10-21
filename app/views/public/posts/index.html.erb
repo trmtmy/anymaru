@@ -2,7 +2,7 @@
 <%# if @customer.is_deleted: false %>
   <% @posts.each do |posts| %>
   <div class = "index-border">
-    <div class = "index-flex1">
+    <div class = "d-flex">
       <div class = "index-customer-image">
         <%= link_to public_customer_path(posts.customer) do %>
           <%= image_tag posts.customer.get_image(80,80), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover; border: solid 3px #BAD3FF;" %>
@@ -15,35 +15,30 @@
     </div>
 
     <div class = "index-br">
-      <div class = "index-flex2">
+      <div class = "d-flex">
         <div class = "index-post-image">
 
+      <% posts.post_images.each do |image| %>
           <%= link_to public_post_path(posts.id) do %>
-            <%= image_tag posts.get_post_images[0], size:'250x250',class: "img-resize, rounded mx-auto d-block", style: "object-fit: cover;" %>
-          <% end %>
+          <%= image_tag image, size:'200x150' ,class: "img-fluid rounded", style: "width: 200px; height: 200px; object-fit: cover;" %>
+        <% end %>
+      <% end %>
+
           <% if posts.get_post_images.count >= 2 %>
+          <!--↑画像が複数存在したら↓アイコン表示-->
           <div class ="text-center">
             <i class="fa-solid fa-ellipsis"></i>
           </div>
           <% end %>
 
         </div>
-    </div>
 
-          <div class="d-flex">
-            <div class="index-bkm-btn">
-              <div id="bookmark_btn_<%= posts.id %>">
-                <%= render "public/bookmarks/bookmark", post: posts %>
-              </div>
-            </div>
-            <div class = "index-category">
-              <i class="fa-solid fa-tag" style="color: #4771b8;"></i>
-              <%= posts.category_i18n %>
-            </div>
-            <div class = "index-clock">
-              <%= posts.created_at.strftime('%Y/%m/%d %H:%M') %>
-            </div>
-          </div>
+    </div>
+      <div class="d-flex">
+
+<%= render "public/posts/post.information", posts: posts %>
+      </div>
+
       </div>
 
   </div>

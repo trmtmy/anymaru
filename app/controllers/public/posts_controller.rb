@@ -24,7 +24,6 @@ before_action :authenticate_customer!, only: [:create]
 
   def show
     @post = Post.find(params[:id])
-    @customer = current_customer.id
     @comment = Comment.new
   end
 

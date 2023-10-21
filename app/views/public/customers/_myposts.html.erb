@@ -1,25 +1,21 @@
-<table>
+<% @posts.each do |posts| %>
+  <div class = "index-border">
 
-    <% @posts.each do |posts| %>
-    <tr>
-      <td class = "title-image"><%= link_to public_post_path(posts.id) do %>
-        <%= image_tag posts.post_images[0], size:'200x150',class: "img-fluid rounded", style: "width: 100px; height: 100px; object-fit: cover;" %>
+    <div class ="d-block d-md-flex">
+      <div class = "postimage">
+      <% posts.post_images.each do |image| %>
+          <%= link_to public_post_path(posts.id) do %>
+          <%= image_tag image, size:'200x150' ,class: "img-fluid rounded", style: "width: 150px; height: 150px; object-fit: cover;" %>
         <% end %>
-      </td>
-
-      <td class = "introduction"><%= safe_join(posts.introduction.split("\n"),tag(:br)) %></td>
-
-      <td class = "category">
-        <i class="fa-solid fa-tag" style="color: #4771b8;"></i>
-        <%= posts.category_i18n %>
-      </td>
-
-      <td class = "bookmark_btn">
-        <div id="bookmark_btn_<%= posts.id %>">
-          <%= render "public/bookmarks/bookmark", post: posts %>
+      <% end %>
         </div>
-      </td>
+      </div>
 
-    </tr>
+      <div class = "introduction"><%= safe_join(posts.introduction.split("\n"),tag(:br)) %></div>
+
+
+  <%= render "public/posts/post.information", posts: posts %>
+
+      </div>
+
     <% end %>
-  </table>

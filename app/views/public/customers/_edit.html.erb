@@ -37,6 +37,9 @@
         </div>
       </tr>
     </table>
-    <%= f.submit "変更" %>
-  <%= link_to "退会", public_customer_customers_confirm_path(current_customer.id) %>
+    <%= f.submit "変更", class: 'btn btn-info' %>
+
+    <%= link_to public_customer_customers_confirm_path(current_customer.id) do %>
+     <button class="btn btn-outline-dark">退会</button>
+    <% end %>
 <% end %>

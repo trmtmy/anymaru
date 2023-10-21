@@ -1,4 +1,4 @@
-<h1><%= @customer.name %>さんの会員情報編集</h1>
+<h4><%= @customer.name %>さんの会員情報編集</h4>
 
     <%= form_with model: @customer, url:admin_customer_path(@customer), method: :patch, local: true do |f| %>
       <table class='table'>
@@ -16,21 +16,21 @@
 
         <tr>
           <div class="field">
-            <td><%= f.label :"プロフィール" %></td>
-            <td><%= f.text_field :profile, autofocus: true %></td>
+            <td><%= f.label :profile,"プロフィール" %></td>
+            <td><%= f.text_area :profile,size: '70', autofocus: true %></td>
           </div>
         </tr>
 
         <tr>
           <div class="field">
-            <td><%= f.label :"エリア" %></td>
+            <td><%= f.label :area,"エリア" %></td>
             <td><%= f.text_field :area, autofocus: true %></td>
           </div>
         </tr>
 
         <tr>
           <div class="field">
-            <td><%= f.label :"メールアドレス" %></td>
+            <td><%= f.label :email,"メールアドレス" %></td>
             <td><%= f.email_field :email, autofocus: true, autocomplete: "email", size:'30' %></td>
           </div>
         </tr>

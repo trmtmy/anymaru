@@ -7,7 +7,7 @@
 }
 
 .col-9 {
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 .about {
@@ -20,15 +20,12 @@
   padding: 100px 200px;
   position: absolute
 }
-.flex {
-  display: flex;
-  margin-top: 30px;
-}
+
 .purpose {
   margin: 50px;
-  margin-top: 150px;
+  margin-top: 170px;
   background: #D7EEFF;
-  padding: 70px 20px;
+  padding: 50px 20px;
   box-shadow: 2px 2px 4px gray;
   opacity: 0.8;
   z-index: 5;
@@ -68,34 +65,32 @@ p.title {
 
 
 /*------------------------------------------マイページ*/
-.profile_flex{
-  display: flex;
-}
 
-.category {
-  width: 150px;
-  padding: 10px;
-  margin: 0 0 0 auto;
-}
-
-.bookmark_btn {
-  /*width: 50px;*/
-  padding: 10px;
+.profile-image {
   width: auto;
-  margin: 0 0 0 auto;
+  margin-top: 20px;
 }
 
-.bkm-table {
+.my-posts {
+  border: 2px solid #BAD3FF;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px #666699;
+  width: 700px;
+  padding: 20px;
+  margin: 20px auto;
+}
+
+.postimage {
+  margin: 0 auto;
+}
+
+.introduction {
   width: auto;
-  table-layout: fixed;
+  padding-left: 10px;
 }
 
-.title-image {
-  width: 200px;
-  padding-left: 20px;
-}
 
-/*--------------------------------------------投稿ページ*/
+/*--------------------------------------------new投稿ページ*/
 
 
 .post {
@@ -103,10 +98,7 @@ p.title {
 
 }
 
-/*---------------------------------------投稿詳細ページ*/
-.post_flex {
-  display: flex;
-}
+/*---------------------------------------show投稿詳細ページ*/
 
 .show-introduction {
   width: auto;
@@ -114,12 +106,12 @@ p.title {
   border-top: 1px solid black;
 }
 
-.clock {
-  margin: 0 10px;
-}
-
 .category-icon {
   margin: 0 0 0 auto;
+}
+
+.clock {
+  margin: 0 10px;
 }
 
 .trash {
@@ -145,40 +137,9 @@ p.title {
   margin: 0 15px 20px;
 }
 
-.time {
-  width:auto;
-  margin: 0 10px 0 0;
-}
+/*---------------------------------------------------一覧部分*/
 
-/*-----------------------------------------------テーブル*/
-table {
-  width: auto;
-  table-layout: fixed;
-}
-.user {
-  width: 120px;
-}
-.title-image{
-  width: 150px;
-}
 
-.introduction {
-  padding: 10px 50px 10px 50px;
-  width: 900px;
-}
-
-.index-category{
-  padding: 10px 10px 10px 50px;
-  width: auto;
-
-}
-/*---------------------------------------------------一覧ページ*/
-.index-flex1 {
-  display: flex;
-}
-.index-flex2 {
-  display: flex;
-}
 
 .index-border {
   width: 700px;
@@ -204,11 +165,12 @@ table {
 }
 
 .index-introduction {
-  width: auto;
+  width: 550px;
   padding-left: 20px;
+  word-wrap: break-word;
 }
 
-.index-clock {
+.index-time {
   padding: 10px 10px 0 10px;
 }
 
@@ -256,33 +218,12 @@ table {
 
 /*-------------------------------------------------検索画面*/
 
-.search-image {
-  width: 150px;
-  padding-left: 30px;
-}
-
-.search-category {
-  width: 200px;
-  padding: 0 0 0 80px;
-}
-
-.search-introduction {
-  width: 500px;
-  padding-left: 50px;
-}
-
 /*customer*/
-.search-name {
-  width: 200px;
+.search-user-info {
+  width: auto;
+  padding-left: 20px;
 }
 
-.search-profile {
-  width: 500px;
-}
-
-.search-area {
-  width: 150px;
-}
 
 /*--------------------------------------------ヘッダー*/
 header {
@@ -299,19 +240,11 @@ header {
 }
 
 
-
 .link {
-  margin-left: 10px;
-  padding: 5px;
+  margin-left: 15px;
+  padding: 10px;
   width: 200px;
-  text-align: center;
-  color: #fff;
-  /*↑文字色*/
-  background-color: #00008B;
-  border-bottom: 5px solid #191970;
-  /*↑立体部分*/
-  border-radius: 5px;
-  box-shadow: 1px 3px 4px #C0C0C0;
+  color: 	#FF82B2;
 }
 
 .link:active {
@@ -321,9 +254,11 @@ header {
 
 .link:hover {
   margin-top: 3px;
-  color: #fff;
-  background: #f56500;
+  // color: #fff;
+  padding: 10px;
+  background:  #FFCCCC;
   border-bottom: 2px solid #b84c00;
+  border-radius: 50px;
 }
 
 .search-icon {
@@ -335,6 +270,7 @@ header {
 .search_form-space {
   height: 20px;
 }
+
 
 
 /*------------------------------------------------レスポンシブ*/
@@ -357,6 +293,10 @@ header {
   box-shadow: 0px 0px 0px #a00;
   transform: translateY(3px);
 }
+
+// Topページ
+
+
 
 /*---------------------一覧*/
 

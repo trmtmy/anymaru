@@ -51,4 +51,5 @@ class Public::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
   end
 
+
 end

@@ -1,44 +1,60 @@
-<table>
 
   <!--検索対象モデルがCustomerの時 -->
 
   <% if @range == "Customer" %>
 
-      <tbody>
-        <% @customers.each do |customers| %>
-          <tr>
-            <td class = "search-image"><%= link_to public_customer_path(customers.id) do %>
-              <%= image_tag customers.get_image(150,150), style: "border-radius: 50%; width: 100px; height: 100px; object-fit:cover; border: solid 3px #BAD3FF;" %>
+
+      <% @customers.each do |customers| %>
+         <div class = "index-border">
+            <div class = "d-flex">
+              <%= link_to public_customer_path(customers.id) do %>
+              <%= image_tag customers.get_image(150,150), style: "border-radius: 50%; width: 150px; height: 150px; object-fit:cover; border: solid 3px #BAD3FF;"  %>
               <% end %>
-              </td>
-            <td class = "search-name"><%= customers.name %></td>
 
-            <td class = "search-profile"><%= customers.profile %></td>
+          <div class = search-user-info>
+            <table class = "table table-striped">
+              <tr>
+                <td>名前</td>
+                <td><%= customers.name %></td>
+              </tr>
+              <tr>
+                <td>エリア</td>
+                <td><%= customers.area %></td>
+              </tr>
+              <tr>
+                <td>プロフィール</td>
+                <td><%= customers.profile %></td>
+              </tr>
+            </table>
+          </div>
 
-            <td class = "search-area"><%= customers.area %></td>
-          </tr>
+          </div>
         <% end %>
-      </tbody>
+      </div>
 
     <% else %>
     <!--検索対象モデルがPostのとき -->
-    <tbody>
-      <% @posts.each do |post| %>
-        <tr>
-          <td class = "search-image"><%= link_to public_post_path(post.id) do %>
-            <%= image_tag post.get_post_images[0], size:'150x150', class: "img-resize, rounded d-block", style: "object-fit: cover;" %>
-            <% end %>
-          </td>
 
-          <td class = "search-introduction"><%= post.introduction %></td>
+      <% @posts.each do |posts| %>
 
-          <td class = "search-category">
-            <i class="fa-solid fa-tag" style="color: #4771b8;"></i>
-            <%= post.category_i18n %>
-          </td>
+        <div class = "index-border">
+          <div class = "d-flex">
+            <div class = ""><%= link_to public_customer_path(posts.id) do %>
+              <%= image_tag posts.customer.get_image(150,150), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover; border: solid 3px #BAD3FF;"  %>
+              <% end %>
+            </div>
+            <%= link_to public_post_path(posts.id) do %>
+              <%= image_tag posts.get_post_images[0], size:'150x150', class: "img-resize, rounded d-block", style: "object-fit: cover;" %>
+              <% end %>
 
-        </tr>
+          </div>
+
+        <div class = "index-introduction"><%= posts.introduction %></div>
+
+
+<%= render "public/posts/post.information", posts: posts %>
+
+        </div>
       <% end %>
-    </tbody>
+
   <% end %>
-</table>

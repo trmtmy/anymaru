@@ -1,10 +1,10 @@
 <p></p>
-<div class ="d-block d-md-flex">
-　<% @post.post_images.each do |image| %>
-    <%= image_tag image, size:'400x400' ,class: "img-resize, rounded mx-auto d-block", style: "object-fit: cover;" %>
-  <% end %>
-</div>
-<span class = "border border-2">
+  <div class ="d-block d-md-flex">
+    <% @post.post_images.each do |image| %>
+      <%= image_tag image, size:'400x400' ,class: "img-resize, rounded mx-auto d-block", style: "object-fit: cover;" %>
+    <% end %>
+  </div>
+
   <br>
 
         <div class = "show-introduction">
@@ -27,11 +27,13 @@
             <%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>
           </div>
 
+          <% if customer_signed_in? %>
             <div class = "bkm-btn">
               <div id="bookmark_btn_<%= @post.id %>">
                 <%= render "public/bookmarks/bookmark", post: @post %>
               </div>
             </div>
+          <% end %>
               <div class = "trash">
                 <% if @post.customer == current_customer %>
                   <%= link_to public_post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' } do %>

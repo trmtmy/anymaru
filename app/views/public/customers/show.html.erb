@@ -1,7 +1,9 @@
-  <p id="notice"><%= notice %></p>
+
     <div class ="d-block d-md-flex">
       <div class = "w-100 w-md-50">
-        <%= image_tag @customer.get_image(350,300), class: "img-fluid d-block mx-auto" %>
+        <div class = "profile-image">
+          <%= image_tag @customer.get_image(350,300), class: "img-fluid d-block mx-auto" %>
+        </div>
       </div>
       <div class = "w-100 w-md-50">
         <table class = "table">
@@ -42,7 +44,7 @@
 
 <!-- タブ -->
 <div class="tabs">
-  
+
   <ul class="nav nav-tabs">
     <li class="nav-item">
       <a class="nav-link active" data-toggle="tab" href="#section1"><i class="fa-solid fa-file-pen" style="color: #3362f0;"></i></a>

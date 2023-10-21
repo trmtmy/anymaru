@@ -1,16 +1,27 @@
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <span>
-      <!--ロゴ部分-->
-        <div class="logo">
-          <% if admin_signed_in? %>
-            <%#= link_to image_tag asset_path("any.png",size:'135x80'), admin_root_path,style: "object-fit: cover;" %>
-              <% else %>
-            <%= link_to image_tag("any.png",size:'135x80'), root_path,style: "object-fit: cover;" %>
+<nav class="navbar navbar-expand-lg navbar-light">
+
+  <div class="container">
+    <a class="navbar-brand">
+    <!--ロゴ部分-->
+      <div class="logo">
+        <% if admin_signed_in? %>
+          <%= link_to  admin_customers_path,style: "object-fit: cover;" do %>
+          <%= image_tag asset_path("any.png"),size:'135x80' %>
           <% end %>
-        </div>
-      </span>
+            <% else %>
+          <%= link_to root_path,style: "object-fit: cover;" do %>
+          <%= image_tag asset_path("any.png"),size:'135x80' %>
+          <% end %>
+        <% end %>
+      </div>
+    </a>
 
 
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav ml-auto">
 
 
@@ -18,18 +29,18 @@
       <!--カスタマーがログインしている時-->
 
         <li><%= link_to public_customer_path(current_customer.id),class: 'link' do %>
-          <b>Mypage</b>
+          <i class="fa-solid fa-user fa-2xl"></i>
           <% end %>
         </li>
 
         <li><%= link_to public_posts_path, class: 'link' do %>
-          <b>Index</b>
+          <i class="fa-solid fa-paw fa-2xl"></i>
           <% end %>
         </li>
 
         <li>
           <%= link_to destroy_customer_session_path,class: 'link', method: :delete do %>
-          <b>Log-out</b>
+          <i class="fa-solid fa-right-from-bracket fa-2xl"></i>
           <% end %>
         </li>
 
@@ -37,20 +48,21 @@
 
         <% else %>
         <li><%= link_to public_posts_path, class: 'link' do %>
-          <b>Index</b>
+          <i class="fa-solid fa-paw fa-2xl"></i>
           <% end %>
         </li>
 
         <li><%= link_to customer_session_path, class: 'link' do %>
-          <b>Log-in</b>
+          <i class="fa-solid fa-right-to-bracket fa-2xl"></i>
           <% end %>
         </li>
 
         <li><%= link_to  new_customer_registration_path,class: 'link' do %>
-          <b>Sign-up</b>
+          <i class="fa-solid fa-user-plus fa-2xl"></i>
           <% end %>
         </li>
         <% end %>
-
+      </div>
     </ul>
-  </nav>
+  </div>
+</nav>

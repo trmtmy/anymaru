@@ -1,24 +1,18 @@
-    <table class="bkm-table">
+<div class = "index-border">
+  <div class = "d-flex">
+<% @bookmarks_posts.each do |post| %>
+  <div class ="user"><%= link_to public_customer_path(post.customer) do %>
+    <%= image_tag post.customer.get_image(120,110), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover; margin-left: 20px;" %>
+      <% end %>
+  </div>
 
-        <tbody>
-          <% @bookmarks_posts.each do |post| %>
-          <tr>
-            <td class ="user"><%= link_to public_customer_path(post.customer) do %>
-              <%= image_tag post.customer.get_image(120,110), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover; margin-left: 20px;" %>
-              <% end %></td>
-            <td class = "title-image"><%= link_to public_post_path(post.id) do %>
-              <%= image_tag post.get_post_images[0], size:'120x100',class: "img-resize, rounded mx-auto d-block", style: "object-fit: cover;" %>
-              <% end %></td>
-            <td class = "introduction"><%= post.introduction %></td>
-           <td class = "bookmark_btn">
-            <div id="bookmark_btn_<%= post.id %>">
-              <%= render "public/bookmarks/bookmark", post: post %>
-            </div>
-          </td>
+      <div class = "bkm-image"><%= link_to public_post_path(post.id) do %>
+        <%= image_tag post.get_post_images[0], size:'150x150',class: "img-fluid rounded", style: "width: 150px; height: 150px; object-fit: cover;" %>
+        <% end %>
+      </div>
+</div>
+        <div class = "introduction"><%= post.introduction %></div>
 
-            <td class = "category"><%= post.category_i18n %></td>
-
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+<%= render "public/posts/post.information", posts: post %>
+  <% end %>
+</div>
