@@ -20,7 +20,7 @@
 
       <% posts.post_images.each do |image| %>
           <%= link_to public_post_path(posts.id) do %>
-          <%= image_tag image, size:'200x150' ,class: "img-fluid rounded", style: "width: 200px; height: 200px; object-fit: cover;" %>
+          <%= image_tag image,class: "img-fluid rounded", style: "width: 200px; height: 200px; object-fit: cover; margin: 10px 0;" %>
         <% end %>
       <% end %>
 
