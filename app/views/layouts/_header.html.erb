@@ -6,11 +6,11 @@
       <div class="logo">
         <% if admin_signed_in? %>
           <%= link_to  admin_customers_path,style: "object-fit: cover;" do %>
-          <%= image_tag asset_path("any.png"),size:'135x80' %>
+          <%= image_tag asset_pack_path('media/images/any.png'),size:'135x80' %>
           <% end %>
             <% else %>
           <%= link_to root_path,style: "object-fit: cover;" do %>
-          <%= image_tag asset_path("any.png"),size:'135x80' %>
+          <%= image_tag asset_pack_path('media/images/any.png'),size:'135x80' %>
           <% end %>
         <% end %>
       </div>
