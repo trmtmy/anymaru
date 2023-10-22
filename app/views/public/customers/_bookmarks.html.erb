@@ -1,18 +1,21 @@
+<% if @bookmarks_posts == true %>
 <div class = "index-border">
-  <div class = "d-flex">
-<% @bookmarks_posts.each do |post| %>
-  <div class ="user"><%= link_to public_customer_path(post.customer) do %>
-    <%= image_tag post.customer.get_image(120,110), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover; margin-left: 20px;" %>
-      <% end %>
-  </div>
+
+  <% @bookmarks_posts.each do |post| %>
+    <div class = "d-flex">
+      <div class ="user"><%= link_to public_customer_path(post.customer) do %>
+        <%= image_tag post.customer.get_image(120,110), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover; margin-left: 20px;" %>
+        <% end %>
+      </div>
 
       <div class = "bkm-image"><%= link_to public_post_path(post.id) do %>
         <%= image_tag post.get_post_images[0],class: "img-fluid rounded", style: "width: 150px; height: 150px; object-fit: cover;" %>
         <% end %>
       </div>
-</div>
-        <div class = "introduction"><%= post.introduction %></div>
+    </div>
+      <div class = "introduction"><%= post.introduction %></div>
 
-<%= render "public/posts/post.information", posts: post %>
+    <%= render "public/posts/post.information", posts: post %>
   <% end %>
 </div>
+<% end %>

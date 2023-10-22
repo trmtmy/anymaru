@@ -3,8 +3,8 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @posts = @customer.posts
-    @bookmarks_posts = @customer.bookmarked_posts
+    @posts = @customer.posts.order(created_at: :desc)
+    @bookmarks_posts = @customer.bookmarked_posts.order(created_at: :desc)
   end
 
   def edit
