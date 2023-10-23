@@ -1,5 +1,10 @@
 @use '~bootstrap/scss/bootstrap';
 
+// ↓バリデーションのレイアウト崩れ防止
+.field_with_errors {
+  display: contents;
+}
+
 /*----------------------------------------TOPページ*/
 .slider {
   position: relative;
@@ -48,9 +53,7 @@ p.title {
 }
 
 /*-------------------------------------投稿固定ボタン*/
-.fixed_btn
-{
-  width: auto;
+.fixed_btn {
   position: fixed;
   bottom: 10px;
   right: 30px;
@@ -93,11 +96,15 @@ p.title {
 
 
 /*--------------------------------------------new投稿ページ*/
-
-
 .post {
-  margin: 0 auto;
+  width: auto;
+  padding: 15px;
+  border-left: 4px solid #008BBB;
+  margin-left: 100px;
+}
 
+.sheets {
+  color: red;
 }
 
 /*---------------------------------------show投稿詳細ページ*/
@@ -191,8 +198,14 @@ p.title {
 }
 
 .messege-border {
-  width: 360px;
-  border: 10px outset #FFFF33;
+  width: auto;
+  border-left: 3px solid black;
+  margin: 30px;
+  padding: 10px;
+}
+
+.conditions {
+  margin: 30px;
 }
 
 /*-----------------------------------------------------------ブックマークの部分テンプレ*/
@@ -203,7 +216,7 @@ p.title {
 /*----------------------------------------------------------投稿プレビュー*/
 .preview-size {
   height: auto;
-  width: 300px;
+  width: 250px;
   margin: 30px 0 0 50px;
 }
 
@@ -283,12 +296,8 @@ header {
   width: 425px;
 }
 .fixed_btn {
-  width: auto;
-  position: fixed;
   bottom: 30px;
   right: 0 0 0 auto;
-  padding: 10px 30px;
-  border-radius: 90%;
 }
 
 .fixed_btn:active {
@@ -361,6 +370,12 @@ header {
   width: 350px;
 }
 
-
+// -------------------------投稿ページ
+.post {
+  width: 410px;
+  padding: 14px;
+  border-left: 3px solid #008BBB;
+  margin-left: 15px;
+}
 
 }

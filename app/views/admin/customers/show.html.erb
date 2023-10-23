@@ -1,18 +1,24 @@
-<h3>コメント一覧</h3>
-
-<table class = "table">
-  <tr>
-    <th>ID</th>
-    <th>コメント</th>
-    <th></th>
-  </tr>
-
-
-<% @customer.comments.each do |comment| %>
-  <tr>
-      <td><%= link_to comment.id,public_post_path(comment.post.id) %></td>
-      <td><%= comment.comment %></td>
-      <td><%= link_to '削除',admin_customer_comment_destroy_path(@customer,comment), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
-  </tr>
+<% if admin_signed_in? %>
+  <h3>コメント一覧</h3>
+  
+  <table class = "table">
+    <tr>
+      <th>ID</th>
+      <th>コメント</th>
+      <th></th>
+    </tr>
+  
+  
+  <% @customer.comments.each do |comment| %>
+    <tr>
+        <td><%= link_to comment.id,public_post_path(comment.post.id) %></td>
+        <td><%= comment.comment %></td>
+        <td><%= link_to '削除',admin_customer_comment_destroy_path(@customer,comment), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
+    </tr>
+  <% end %>
+  </table>
+  <% else %>
+  <div class ="text-center">
+    <h2>閲覧権限がありません。</h2>
+  </div>
 <% end %>
-</table>

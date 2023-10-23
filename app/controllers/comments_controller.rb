@@ -7,7 +7,9 @@ before_action :authenticate_customer!, only: [:create]
     @comment = Comment.new(comment_params)
     @comment.customer_id = current_customer.id
     @comment.post_id = @post.id
-    @comment.save
+    if @comment.save
+      @comment = Comment.new
+    end
   end
 
   def destroy
