@@ -305,9 +305,29 @@ header {
   transform: translateY(3px);
 }
 
-// Topページ
+// ------------Topページ
 
+.purpose {
+  width: 400px;
+  margin: 10px;
+  margin-top: 170px;
+  background: #D7EEFF;
+  padding: 50px 10px;
+  box-shadow: 2px 2px 4px gray;
+  opacity: 0.8;
+  z-index: 5;
+}
 
+.about {
+  opacity: 0.8;
+  /*↑透明度*/
+  box-shadow: 2px 2px 4px gray;
+  /*↑影*/
+  margin: -50px 0 0 20px ;
+  background: #FFFFFF;
+  padding: 20px 50px;
+  position: absolute
+}
 
 /*---------------------一覧*/
 
