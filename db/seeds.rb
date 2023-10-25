@@ -1,8 +1,7 @@
 # 管理者
-Admin.find_or_create_by!(
-   email: 'admin@admin',
-   password: '111111'
-)
+Admin.find_or_create_by!(email: 'admin@admin') do |admin|
+  admin.password = '111111'
+end
 
 # ユーザーデータ
 
