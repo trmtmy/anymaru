@@ -13,7 +13,7 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application";
 
-$(document).on('turbolinks:load',function() {
+$(document).on('DOMContentLoaded',function() {
   $('.slider').slick({
       arrows: false,  //ボタン非表示
       autoplay: true, //自動再生
@@ -32,5 +32,5 @@ $(function() {
 
 
 Rails.start()
-Turbolinks.start()
+// Turbolinks.start()
 ActiveStorage.start()
