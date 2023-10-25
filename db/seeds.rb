@@ -1,5 +1,5 @@
 # 管理者
-Admin.create!(
+Admin.find_or_create_by!(
    email: 'admin@admin',
    password: '111111'
 )
