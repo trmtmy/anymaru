@@ -1,7 +1,5 @@
-<% if @bookmarks_posts == true %>
-<div class = "index-border">
-
-  <% @bookmarks_posts.each do |post| %>
+<% @bookmarks_posts.each do |post| %>
+  <div class = "index-border">
     <div class = "d-flex">
       <div class ="user"><%= link_to public_customer_path(post.customer) do %>
         <%= image_tag post.customer.get_image(120,110), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover; margin-left: 20px;" %>
@@ -16,6 +14,5 @@
       <div class = "introduction"><%= post.introduction %></div>
 
     <%= render "public/posts/post.information", posts: post %>
-  <% end %>
-</div>
+  </div>
 <% end %>
