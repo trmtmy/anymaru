@@ -5,6 +5,11 @@
   display: contents;
 }
 
+// ↓リンクの下線消し
+a:hover {
+  text-decoration: none;
+}
+
 /*----------------------------------------TOPページ*/
 .slider {
   position: relative;
@@ -54,12 +59,18 @@ p.title {
 
 /*-------------------------------------投稿固定ボタン*/
 .fixed_btn {
+  width: 150px;
+  height: 120px;
   position: fixed;
   bottom: 10px;
   right: 30px;
-  padding: 10px 30px;
   border-radius: 90%;
   box-shadow: 2px 2px 4px gray;
+}
+
+.fixed_image {
+  width: 90px;
+  height: 80px;
 }
 
 .fixed_btn:active {
@@ -134,7 +145,15 @@ p.title {
 .show-introduction {
   width: auto;
   padding: 10px;
-  border-top: 1px solid black;
+}
+
+.show-box {
+  width: 1000px;
+  padding: 20px;
+  margin: 20px auto;
+  border: 2px solid #BAD3FF;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px #666699;
 }
 
 .category-icon {
@@ -154,12 +173,12 @@ p.title {
   flex-wrap: wrap;
   height: 30px;
   width:  auto;
-  margin: 0 0 0 auto;
+  margin: 50px 0 0 20px;
 }
 
 .comment-form {
-  width: auto;
-  margin: 20px 0 0 10px;
+  width: 415px;
+  margin: 0 auto;
 }
 
 .comment{
@@ -223,6 +242,7 @@ p.title {
   padding: 10px 10px 0 10px;
 }
 
+
 /*-----------------------------------------------------------notesページ*/
 .messege {
   color: #993333;
@@ -243,13 +263,6 @@ p.title {
 /*-----------------------------------------------------------ブックマークの部分テンプレ*/
 .count-color {
   color: orange;
-}
-
-/*----------------------------------------------------------投稿プレビュー*/
-.preview-size {
-  height: auto;
-  width: 250px;
-  margin: 30px 0 0 50px;
 }
 
 /*-----------------------------------------------------上部へのスクロールボタン*/
@@ -319,6 +332,10 @@ header {
   border-radius: 50px;
 }
 
+#back {
+  bottom: 40px;
+}
+
 .search-icon {
   width: 30px;
   height: auto;
@@ -355,9 +372,30 @@ header {
   word-wrap: break-word;
 }
 
+/*----------------------------------------------------------投稿プレビュー*/
+
+.image-list {
+  display: flex;
+}
+
+.preview-size {
+  height: auto;
+  width: 250px;
+  margin: 30px 0 0 50px;
+}
+
+footer {
+  text-align: center;
+  width: auto;
+  margin-top: 80px;
+}
 /*------------------------------------------------レスポンシブ*/
 
 @media screen and (max-width: 425px) {
+
+.image-list {
+  flex-direction: column;
+}
 
 header {
   width: 100%;
@@ -384,9 +422,18 @@ header {
   border-radius: 50px;
 }
 
+// 固定ボタン
+
 .fixed_btn {
-  bottom: 30px;
-  right: 0 0 0 auto;
+  position: fixed;
+  width: 100px;
+  height: 90px;
+  bottom: 40px;
+}
+
+.fixed_image {
+  width: 70px;
+  height: 60px;
 }
 
 .fixed_btn:active {
@@ -394,12 +441,13 @@ header {
   transform: translateY(3px);
 }
 
+
 // ------------Topページ
 
 .purpose {
   width: 400px;
   margin: 10px;
-  margin-top: 170px;
+  margin-top: 100px;
   background: #D7EEFF;
   padding: 50px 10px;
   box-shadow: 2px 2px 4px gray;
@@ -408,13 +456,14 @@ header {
 }
 
 .about {
+  width: 90%;
   opacity: 0.8;
   /*↑透明度*/
   box-shadow: 2px 2px 4px gray;
   /*↑影*/
   margin: -50px 0 0 20px ;
   background: #FFFFFF;
-  padding: 20px 50px;
+  padding: 20px 30px;
   position: absolute
 }
 
@@ -436,12 +485,6 @@ header {
   padding-left: 20px;
 }
 
-.index-br::before {
-  content: "\A";
-  white-space: pre;
-  height: 50px;
-}
-
 .index-bkm-btn{
   width: 100px;
   height: 20px;
@@ -458,6 +501,23 @@ header {
 }
 
 // -------------------------------------詳細ページ
+
+.show-box {
+  width: 100%;
+  padding: 8px;
+}
+
+.post-show {
+  margin: 30px 0 0 4px;
+}
+
+.show-introduction {
+  padding: 5px;
+}
+
+.category-icon {
+
+}
 
 .comment {
   width: 200px;
@@ -481,14 +541,16 @@ header {
   width: 100%;
 }
 
-
+.comment-form {
+  width: 100%;
+}
 
 // -------------------------投稿ページ
 .post {
   width: 410px;
   padding: 14px;
   border-left: 3px solid #008BBB;
-  margin-left: 15px;
+  margin-left: 12px;
 }
 
 

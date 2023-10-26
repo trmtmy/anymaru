@@ -1,4 +1,6 @@
 <p></p>
+
+
   <div class ="d-block d-md-flex">
     <% @post.post_images.each do |image| %>
       <%= image_tag image, size:'400x400' ,class: "img-resize, rounded mx-auto d-block", style: "object-fit: cover;" %>
@@ -6,46 +8,54 @@
   </div>
 
   <br>
+<div class="show-box">
+    <div class = "show-introduction">
+      <div class = "d-flex">
+    <%= link_to public_customer_path(@post) do %>
+      <%= image_tag @post.customer.get_image(80,80), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover; border: solid 3px #BAD3FF;" %>
+    <% end %>
 
-        <div class = "show-introduction">
-        <%= link_to public_customer_path(@post) do %>
-          <%= image_tag @post.customer.get_image(80,80), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover; border: solid 3px #BAD3FF;" %>
-        <% end %>
-        <br>
-          <i class="fa-solid fa-pen" style="color: #4771b8;"></i>
-          <%= safe_join(@post.introduction.split("\n"),tag(:br)) %>
+      <div class = "post-show">
+
+      <div class = "category-icon">
+        <i class="fa-solid fa-tag" style="color: #4771b8;"></i>
+        <%= @post.category_i18n %>
+      </div>
+
+      <div class = "clock">
+        <i class="fa-regular fa-clock" style="color: #4771b8;"></i>
+        <%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>
+      </div>
+
+      <% if customer_signed_in? %>
+        <div class = "bkm-btn">
+          <div id="bookmark_btn_<%= @post.id %>">
+            <%= render "public/bookmarks/bookmark", post: @post %>
+          </div>
         </div>
+      <% end %>
+          <div class = "trash">
+            <% if @post.customer == current_customer %>
+              <%= link_to public_post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' } do %>
+                <i class="fa-solid fa-trash" style="color: #d64359;"></i>
+              <% end %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+    <br>
+      <i class="fa-solid fa-pen" style="color: #4771b8;"></i>
+      <%= safe_join(@post.introduction.split("\n"),tag(:br)) %>
+    </div>
 
-        <div class = "post-show">
 
-          <div class = "category-icon">
-            <i class="fa-solid fa-tag" style="color: #4771b8;"></i>
-            <%= @post.category_i18n %>
-          </div>
+    </div>
 
-          <div class = "clock">
-            <i class="fa-regular fa-clock" style="color: #4771b8;"></i>
-            <%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>
-          </div>
+      <!--コメント-->
 
-          <% if customer_signed_in? %>
-            <div class = "bkm-btn">
-              <div id="bookmark_btn_<%= @post.id %>">
-                <%= render "public/bookmarks/bookmark", post: @post %>
-              </div>
-            </div>
-          <% end %>
-              <div class = "trash">
-                <% if @post.customer == current_customer %>
-                  <%= link_to public_post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' } do %>
-                    <i class="fa-solid fa-trash" style="color: #d64359;"></i>
-                  <% end %>
-                <% end %>
-            </div>
-          </div>
-          <div id="comment-form">
-            <%= render "comments/comment_form", post: @post, comment: @comment %>
-          </div>
+      <div id="comment-form">
+        <%= render "comments/comment_form", post: @post, comment: @comment %>
+      </div>
 
   <br>
 
@@ -53,6 +63,5 @@
       <%= render "comments/index", post: @post, comment: @comment %>
     </div>
 
-  <br>
 
 <%= render "newpost" %>

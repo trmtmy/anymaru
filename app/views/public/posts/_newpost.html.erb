@@ -1,6 +1,6 @@
 <% if current_customer %>
   <button class="fixed_btn">
-    <%= link_to image_tag("new.png",size: '80x90'), new_public_post_path, class: "img-fluid", style: "max-width: 100%; height: 80px; object-fit:cover; " %>
+    <%= link_to image_tag("new.png", class: "fixed_image"), new_public_post_path, style: "max-width: 100%; object-fit:cover; " %>
   </button>
   <% else %>
 <% end %>
