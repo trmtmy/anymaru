@@ -1,34 +1,46 @@
 <% if admin_signed_in? %>
-  <table class = "table">
-      <tr>
-        <th>ID</th>
-        <th>登録画像</th>
-        <th>名前</th>
-        <th>プロフィール</th>
-        <th>アドレス</th>
-        <th>エリア</th>
-        <th>コメント</th>
-        <th>ステータス</th>
-      </tr>
 
-    <% @customer.each do |customers| %>
 
-      <tr>
-        <td><%= customers.id %></td>
-        <td>
-          <%= link_to public_customer_path(customers) do %>
-          <%= image_tag customers.get_image(120,110) %>
-          <% end %>
-        </td>
-        <td><%= link_to customers.name, edit_admin_customer_path(customers.id) %></td>
-        <td><%= customers.profile %></td>
-        <td><%= customers.email %></td>
-        <td><%= customers.area %></td>
-        <td><%= link_to customers.comments.count,admin_customer_path(customers.id) %>件</td>
-        <td><%= customers.customer_status %></td>
-      </tr>
+<% @customer.each do |customers| %>
+  <div class = "admin-box">
+    <%= link_to public_customer_path(customers) do %>
+      <%= image_tag customers.get_image(120,110) %>
     <% end %>
-  </table>
+
+    <span class = "admin-space">
+      <i class="fa-solid fa-hashtag" style="color: #4771b8;"></i>
+      <span><%= customers.id %></span>
+    </span>
+
+    <i class="fa-solid fa-user" style="color: #4771b8;"></i>
+    <span><%= link_to customers.name, edit_admin_customer_path(customers.id) %></span>
+
+    <span class = "admin-information">
+      <i class="fa-solid fa-location-dot" style="color: #4771b8;"></i>
+      <span><%= customers.area %></span>
+
+      <span class = "admin-space">
+        <i class="fa-regular fa-comment" style="color: #4771b8;"></i>
+        <span><%= link_to customers.comments.count,admin_customer_path(customers.id) %>件</span>
+      </span>
+
+      <i class="fa-solid fa-toggle-off" style="color: #4771b8;"></i>
+      <span><%= customers.customer_status %></span>
+
+      <span class= "admin-space">
+        <i class="fa-regular fa-envelope" style="color: #4771b8;"></i>
+        <span><%= customers.email %></span>
+      </span>
+    </span>
+
+
+    <div class = "admin-profile">
+      <i class="fa-solid fa-address-card" style="color: #4771b8;"></i>
+      <%= customers.profile %>
+    </div>
+  </div>
+<% end %>
+
   <% else %>
   <div class ="text-center">
     <h2>閲覧権限がありません。</h2>

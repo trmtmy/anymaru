@@ -1,8 +1,13 @@
 <%= render "layouts/errors", post: @comment %>
 
 <div class = "comment-form">
-  <%= form_with model: [post, comment], local: false do |f| %>
+
+  <%= form_with model: [post, comment], local: false , class: "form-inline" do |f| %>
+  <div class="form-group d-flex align-items-end">
     <%= f.text_area :comment, size:'50' ,placeholder: "コメントを追加" %>
-    <%= f.submit "送信" %>
+    <%= f.submit "送信", class: "btn btn-outline-primary" %>
+  </div>
   <% end %>
 </div>
+
+  <p>コメント件数：<%= post.comments.count %></p>

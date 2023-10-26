@@ -49,8 +49,8 @@ p.title {
   border-left :solid 5px #330066;
   border-bottom: solid 1px #330066;
   text-align:center;
-
 }
+
 
 /*-------------------------------------投稿固定ボタン*/
 .fixed_btn {
@@ -72,7 +72,29 @@ p.title {
 
 .profile-image {
   width: auto;
-  margin: 20px 20px 0 30px;
+  margin: 20px 20px 0 80px;
+}
+
+.profile {
+  width: 700px;
+  margin: 20px;
+  border: 2px solid #BAD3FF;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px #666699;
+  padding: 15px;
+}
+
+.customer-profile {
+  width: 700px;
+  border-top: 4px dotted #BAD3FF;
+  padding: 10px;
+  word-wrap: break-word;
+}
+
+.profile-information {
+  width: auto;
+  margin: 0 20px;
+
 }
 
 .my-posts {
@@ -143,7 +165,17 @@ p.title {
 .comment{
   width: auto;
   height: auto;
-  margin: 0 15px 20px;
+  margin: 10px 15px 0 15px;
+}
+
+.time {
+  width: auto;
+  text-align: right;
+}
+
+.trash {
+  width: auto;
+  margin-left: 15px;
 }
 
 /*---------------------------------------------------一覧部分*/
@@ -234,9 +266,21 @@ p.title {
 /*-------------------------------------------------検索画面*/
 
 /*customer*/
+
 .search-user-info {
-  width: auto;
+  width: 500px;
   padding-left: 20px;
+  word-wrap: break-word;
+}
+
+.customer-area {
+  width: auto;
+  margin-left: 20px;
+}
+
+.customer-profile {
+  width: auto;
+  margin-top: 20px;
 }
 
 
@@ -269,7 +313,6 @@ header {
 
 .link:hover {
   margin-top: 3px;
-  // color: #fff;
   padding: 10px;
   background:  #FFCCCC;
   border-bottom: 2px solid #b84c00;
@@ -279,22 +322,68 @@ header {
 .search-icon {
   width: 30px;
   height: auto;
-  /*margin-bottom: 8px;*/
 }
 
 .search_form-space {
   height: 20px;
 }
 
+// 管理者
 
+.admin-box {
+  width: 1000px;
+  padding: 20px;
+  margin: 20px auto;
+  border: 2px solid #BAD3FF;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px #666699;
+}
+
+.admin-information {
+  width: auto;
+  margin: 0 0 0 20px;
+}
+
+.admin-space {
+  width: auto;
+  margin: 0 20px;
+}
+
+.admin-profile {
+  width: 950px;
+  margin: 0 auto;
+  word-wrap: break-word;
+}
 
 /*------------------------------------------------レスポンシブ*/
 
 @media screen and (max-width: 425px) {
 
 header {
-  width: 425px;
+  width: 100%;
 }
+
+.link {
+  margin-left: 0px;
+  padding: 0px;
+  width: 200px;
+  color: 	#FF82B2;
+}
+
+.link:active {
+  box-shadow: 0px 0px 0px #a00;
+  transform: translateY(10px);
+}
+
+.link:hover {
+  margin-top: 3px;
+  // color: #fff;
+  padding: 0px;
+  background:  #FFCCCC;
+//  border-bottom: 2px solid #b84c00;
+  border-radius: 50px;
+}
+
 .fixed_btn {
   bottom: 30px;
   right: 0 0 0 auto;
@@ -332,16 +421,10 @@ header {
 /*---------------------一覧*/
 
 .index-border{
-  width: 410px;
+  width: 100%;
+  padding: 20px 10px;
 }
 
-.index-flex {
-  width: 400px;
-}
-
-.index-flex2 {
-  width: 200;
-}
 
 .index-post-image {
   width: 200px;
@@ -349,7 +432,7 @@ header {
 }
 
 .index-introduction {
-  width: 280px;
+  width: 310px;
   padding-left: 20px;
 }
 
@@ -382,13 +465,23 @@ header {
 
 
 /*--------------------------------マイページ*/
-.show-image {
-  width: 50px;
+
+.profile-image {
+  width: auto;
+  margin: 20px 10px 0 10px;
 }
 
-.show-table {
-  width: 350px;
+.profile {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
 }
+
+.cusotmer-profile {
+  width: 100%;
+}
+
+
 
 // -------------------------投稿ページ
 .post {
@@ -397,5 +490,7 @@ header {
   border-left: 3px solid #008BBB;
   margin-left: 15px;
 }
+
+
 
 }

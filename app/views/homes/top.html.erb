@@ -16,17 +16,23 @@
 
   <div class = "d-block d-md-flex">
     <div class = "purpose">
-        <%= image_tag asset_path("yellow.jpg"),class: "mx-auto img-fluid rounded", style: "width: 200px; height: 200px; object-fit: cover;" %>
+      <div class="mx-auto" style="width: 200px;">
+        <%= image_tag asset_path("yellow.jpg"),class: "mx-auto img-fluid rounded", style: "height: 200px; object-fit: cover;" %>
+      </div>
       <b><p class = "title">お探しですか？</p></b>
       <p>心配でしょうがないと思います。大事な家族をいち早く見つけられるよう、仲間と情報交換をしていきましょう。</p>
     </div>
       <div class = "purpose">
-        <%= image_tag asset_path("pink.jpg"),class: "img-fluid rounded", style: "width: 200px; height: 200px; object-fit: cover;" %>
+        <div class="mx-auto" style="width: 200px;">
+          <%= image_tag asset_path("pink.jpg"),class: "img-fluid rounded", style: "height: 200px; object-fit: cover;" %>
+        </div>
         <p class = "title"><b>家族をお迎え</b></p>
         <p>わくわく感であったり不安であったり、様々な思いがあるかと思います。きっと良き相談相手が見つかるはずです。</p>
       </div>
         <div class = "purpose">
-          <%= image_tag asset_path("red.jpg"),class: "img-fluid rounded", style: "width: 200px; height: 200px; object-fit: cover;" %>
+          <div class="mx-auto" style="width: 200px;">
+            <%= image_tag asset_path("red.jpg"),class: "img-fluid rounded", style: "width: 200px; height: 200px; object-fit: cover;" %>
+          </div>
           <p class = "title"><b>保護</b></p>
           <p>保護後の行動、飼い主の有無、とにかく情報が必要かと思います。あなただけで頑張る必要はありません。</p>
         </div>

@@ -1,32 +1,35 @@
-<div>
-  <p>コメント件数：<%= post.comments.count %></p>
-
   <% post.comments.each do |comment| %>
-
+<div class ="index-border">
   <span class = "comment-user">
     <%= link_to public_customer_path(comment.customer) do %>
       <%= image_tag comment.customer.get_image(100,100), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover; border: solid 3px #BAD3FF;" %>
 
-    <%= comment.customer.name %>
+      <%= comment.customer.name %>
     <% end %>さんからのコメント
   </span>
 
   <br>
 
-  <span class = "comment">
+  <div class = "comment">
+    <i class="fa-regular fa-comment" style="color: #4771b8;"></i>
     <%= comment.comment %>
-  </span>
-  <span class = "time">
+  </div>
+
+  <div class = "time">
     <i class="fa-regular fa-clock" style="color: #4771b8;"></i>
     <%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>
-  </span>
+
 
       <% if comment.customer == current_customer %>
+      <span class = "trash">
       <%= link_to  post_comment_path(post, comment), method: :delete,data: { confirm: '本当に消しますか？' }, remote: true do %>
           <i class="fa-solid fa-trash" style="color: #d64359;"></i>
     <% end %>
+    </span>
     <% end %>
-    <br>
-  <% end %>
+
+  </div>
 </div>
+<% end %>
+
 

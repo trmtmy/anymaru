@@ -1,40 +1,33 @@
-
     <div class ="d-block d-md-flex">
-      <div class = "w-90 w-md-50">
+      <div class = "w-100 w-md-50">
         <div class = "profile-image">
-          <%= image_tag @customer.get_image(400,350), class: "img-fluid d-block", style: "width: 400px; height: auto; border-radius: 5px; object-fit: cover;"%>
+          <%= image_tag @customer.get_image(400,350), class: "img-fluid d-block", style: "width: 400px;border-radius: 5px; object-fit: cover;"%>
         </div>
       </div>
       <div class = "w-100 w-md-50">
-        <table class = "table">
-          <tr>
-            <td><i class="fa-solid fa-address-card" style="color: #4771b8;"></i></td>
-            <td><%= @customer.name %></td>
-          </tr>
+          <div class = "profile">
+            <i class="fa-solid fa-address-card" style="color: #4771b8;"></i>
+            <%= @customer.name %>
 
-          <tr>
-            <td></td>
-            <td><%= @customer.profile %></td>
-          </tr>
 
-          <tr>
-            <td><i class="fa-solid fa-location-dot" style="color: #4771b8;"></i></td>
-            <td><%= @customer.area %></td>
-          </tr>
+              <span class = "profile-information">
+            <i class="fa-solid fa-location-dot" style="color: #4771b8;"></i>
+            <%= @customer.area %>
+            </span>
 
-          <tr>
-            <td>
                <% if @customer == current_customer %>
-                 メールアドレス
+                 <i class="fa-solid fa-envelope" style="color: #4771b8;"></i>
                <% end %>
-            </td>
-            <td>
               <% if @customer == current_customer %>
+
+
                 <%= @customer.email %>
               <% end %>
-            </td>
-          </tr>
-        </table>
+              <br>
+          <div class = "customer-profile">
+            <%= @customer.profile %>
+            </div>
+          </div>
       </div>
     </div>
 
@@ -76,5 +69,4 @@
 </div>
 
 
-</div>
 <%= render "public/posts/newpost" %>

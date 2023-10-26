@@ -40,7 +40,7 @@ class Admin::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:is_deleted, :name, :profile, :area, :image)
+    params.require(:customer).permit(:is_deleted, :name, :profile, :area, :image, :email)
   end
 
 end

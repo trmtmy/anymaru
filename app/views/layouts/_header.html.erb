@@ -22,7 +22,7 @@
   <span class="navbar-toggler-icon"></span>
 </button>
 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto" style="max-width: 30px; text-align: right; margin-right: 10px;">
 
 
       <% if customer_signed_in? %>
@@ -32,12 +32,12 @@
           <i class="fa-solid fa-user fa-2xl"></i>
           <% end %>
         </li>
-          <div class="dropdown-divider"></div>
+          <div class="dropdown-divider"style="1px solid rgba(0, 0, 0, 0.075)"></div>
         <li><%= link_to public_posts_path, class: 'link' do %>
           <i class="fa-solid fa-paw fa-2xl"></i>
           <% end %>
         </li>
-          <div class="dropdown-divider"></div>
+          <div class="dropdown-divider" style="1px solid rgba(0, 0, 0, 0.075)"></div>
         <li>
           <%= link_to destroy_customer_session_path,class: 'link', method: :delete do %>
           <i class="fa-solid fa-right-from-bracket fa-2xl"></i>
@@ -62,12 +62,12 @@
           <i class="fa-solid fa-paw fa-2xl"></i>
           <% end %>
         </li>
-
+          <div class="dropdown-divider"style="1px solid rgba(0, 0, 0, 0.075)"></div>
         <li><%= link_to customer_session_path, class: 'link' do %>
           <i class="fa-solid fa-right-to-bracket fa-2xl"></i>
           <% end %>
         </li>
-
+          <div class="dropdown-divider"style="1px solid rgba(0, 0, 0, 0.075)"></div>
         <li><%= link_to  new_customer_registration_path,class: 'link' do %>
           <i class="fa-solid fa-user-plus fa-2xl"></i>
           <% end %>
