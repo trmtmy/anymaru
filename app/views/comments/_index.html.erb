@@ -1,4 +1,8 @@
-  <% post.comments.each do |comment| %>
+<div class = "text-center" >
+  コメント件数：<span id="comment_count"><%= post.comments.count %></span>
+</div>
+
+<% post.comments.each do |comment| %>
 <div class ="index-border">
   <span class = "comment-user">
     <%= link_to public_customer_path(comment.customer) do %>
