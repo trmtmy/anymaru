@@ -18,7 +18,7 @@
 
     <% if current_customer && current_customer.id == posts.customer.id %>
     <div class ="index-trash">
-    <span><%= link_to public_post_path(posts.customer), method: :delete, data: { confirm: '本当に消しますか？' } do %>
+    <span><%= link_to public_post_path(posts), method: :delete, data: { confirm: '本当に消しますか？' } do %>
       <i class="fa-solid fa-trash" style="color: #d64359;"></i>
       </div>
       <% end %>
