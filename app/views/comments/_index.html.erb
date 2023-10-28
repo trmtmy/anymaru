@@ -3,7 +3,7 @@
 </div>
 
 <% post.comments.each do |comment| %>
-<div class ="index-border">
+<div class ="index-box">
   <span class = "comment-user">
     <%= link_to public_customer_path(comment.customer) do %>
       <%= image_tag comment.customer.get_image(100,100), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover; border: solid 3px #BAD3FF;" %>

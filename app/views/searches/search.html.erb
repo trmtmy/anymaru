@@ -4,7 +4,7 @@
 <% if @range == "Customer" %>
 
   <% @customers.each do |customers| %>
-     <div class = "index-border">
+     <div class = "index-box">
         <div class = "d-flex">
           <%= link_to public_customer_path(customers.id) do %>
             <%= image_tag customers.get_image(150,150), style: "border-radius: 50%; width: 150px; height: 150px; object-fit:cover; border: solid 3px #BAD3FF;"%>
@@ -39,7 +39,7 @@
   <!--検索対象モデルがPostのとき -->
     <% @posts.each do |posts| %>
 
-      <div class = "index-border">
+      <div class = "index-box">
         <div class = "d-flex">
           <div><%= link_to public_customer_path(posts.id) do %>
             <%= image_tag posts.customer.get_image(150,150), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover; border: solid 3px #BAD3FF;"  %>
@@ -47,11 +47,15 @@
           </div>
         <div class = "index-introduction"><%= posts.introduction %></div>
         </div>
-          <% posts.post_images.each do |image| %>
-            <%= link_to public_post_path(posts.id) do %>
-              <%= image_tag image,class: "img-fluid rounded", style: "width: 200px; height: 200px; object-fit: cover; margin: 10px 10px;" %>
+        <div class ="d-flex">
+          <div class = "index-post-image">
+            <% posts.post_images.each do |image| %>
+              <%= link_to public_post_path(posts.id) do %>
+                <%= image_tag image,class: "img-fluid rounded", style: "width: 200px; height: 200px; object-fit: cover; margin: 10px 0;" %>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
+        </div>
         <%= render "public/posts/post.information", posts: posts %>
       </div>
     <% end %>

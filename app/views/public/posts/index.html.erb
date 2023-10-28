@@ -1,7 +1,5 @@
-
-<%# if @customer.is_deleted: false %>
   <% @posts.each do |posts| %>
-  <div class = "index-border">
+  <div class = "index-box">
     <div class = "d-flex">
       <div class = "index-customer-image">
         <%= link_to public_customer_path(posts.customer) do %>

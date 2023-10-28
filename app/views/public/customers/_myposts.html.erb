@@ -1,11 +1,11 @@
 <% @posts.each do |posts| %>
-  <div class = "index-border">
+  <div class = "index-box">
 
     <div class ="d-block d-md-flex">
       <div class = "postimage">
       <% posts.post_images.each do |image| %>
           <%= link_to public_post_path(posts.id) do %>
-          <%= image_tag image,class: "img-fluid rounded", style: "width: 150px; height: 150px; object-fit: cover;" %>
+          <%= image_tag image,class: "img-fluid rounded m-1", style: "width: 150px; height: 150px; object-fit: cover;" %>
         <% end %>
       <% end %>
         </div>

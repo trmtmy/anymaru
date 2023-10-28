@@ -1,5 +1,5 @@
 <% @bookmarks_posts.each do |post| %>
-  <div class = "index-border">
+  <div class = "index-box">
       <div class ="user"><%= link_to public_customer_path(post.customer) do %>
         <%= image_tag post.customer.get_image(120,110), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover; margin-left: 20px; border: solid 3px #BAD3FF;" %>
         <% end %>
@@ -10,7 +10,7 @@
       <% post.post_images.each do |image| %>
 
           <%= link_to public_post_path(post.id) do %>
-            <%= image_tag image,class: "img-fluid rounded", style: "width: 150px; height: 150px; object-fit: cover; margin: 10px 10px;" %>
+            <%= image_tag image,class: "img-fluid rounded m-1", style: "width: 150px; height: 150px; object-fit: cover; margin: 10px 10px;" %>
           <% end %>
 
       <% end %>
