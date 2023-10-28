@@ -127,9 +127,17 @@ p.title {
   word-wrap: break-word;
 }
 
+.edit-link {
+  width: auto;
+  margin-top: 15px;
+}
+
+
+
+
 
 /*--------------------------------------------new投稿ページ*/
-.post {
+.vertical-line {
   width: auto;
   padding: 15px;
   border-left: 4px solid #008BBB;
@@ -174,11 +182,6 @@ p.title {
   height: 30px;
   width:  auto;
   margin: 50px 0 0 20px;
-}
-
-.comment-form {
-  width: 415px;
-  margin: 0 auto;
 }
 
 .comment{
@@ -519,10 +522,6 @@ header {
   padding: 5px;
 }
 
-.category-icon {
-
-}
-
 .comment {
   width: 200px;
 }
@@ -545,12 +544,9 @@ header {
   width: 100%;
 }
 
-.comment-form {
-  width: 100%;
-}
 
 // -------------------------投稿ページ
-.post {
+.vertical-line {
   width: 410px;
   padding: 14px;
   border-left: 3px solid #008BBB;
