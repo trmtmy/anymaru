@@ -8,14 +8,14 @@
           <%= image_tag image,class: "img-fluid rounded m-1", style: "width: 150px; height: 150px; object-fit: cover;" %>
         <% end %>
       <% end %>
-        </div>
       </div>
+    </div>
 
-      <div class = "introduction"><%= safe_join(posts.introduction.split("\n"),tag(:br)) %></div>
+  <div class = "introduction"><%= safe_join(posts.introduction.split("\n"),tag(:br)) %></div>
 
 
   <%= render "public/posts/post.information", posts: posts %>
 
-      </div>
+  </div>
 
-    <% end %>
+<% end %>

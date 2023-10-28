@@ -1,6 +1,5 @@
 <p></p>
 
-
   <div class ="d-block d-md-flex">
     <% @post.post_images.each do |image| %>
       <%= image_tag image, size:'380x380' ,class: "img-resize, rounded mx-auto d-block mt-1 mx-auto", style: "object-fit: cover;" %>
@@ -9,23 +8,23 @@
 
   <br>
 <div class="show-box">
-    <div class = "show-introduction">
-      <div class = "d-flex">
-    <%= link_to public_customer_path(@post.customer) do %>
-      <%= image_tag @post.customer.get_image(80,80), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover; border: solid 3px #BAD3FF;" %>
-    <% end %>
+  <div class = "show-introduction">
+    <div class = "d-flex">
+      <%= link_to public_customer_path(@post.customer) do %>
+        <%= image_tag @post.customer.get_image(80,80), style: "border-radius: 50%; width: 80px; height: 80px; object-fit:cover; border: solid 3px #BAD3FF;" %>
+      <% end %>
 
-      <div class = "post-show">
+    <div class = "post-show">
 
-      <div class = "category-icon">
-        <i class="fa-solid fa-tag" style="color: #4771b8;"></i>
-        <%= @post.category_i18n %>
-      </div>
+    <div class = "category-icon">
+      <i class="fa-solid fa-tag" style="color: #4771b8;"></i>
+      <%= @post.category_i18n %>
+    </div>
 
-      <div class = "clock">
-        <i class="fa-regular fa-clock" style="color: #4771b8;"></i>
-        <%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>
-      </div>
+    <div class = "clock">
+      <i class="fa-regular fa-clock" style="color: #4771b8;"></i>
+      <%= @post.created_at.strftime('%Y/%m/%d %H:%M') %>
+    </div>
 
       <% if customer_signed_in? %>
         <div class = "bkm-btn">
@@ -46,22 +45,19 @@
     <br>
       <i class="fa-solid fa-pen" style="color: #4771b8;"></i>
       <%= safe_join(@post.introduction.split("\n"),tag(:br)) %>
-    </div>
-
-
-    </div>
+  </div>
+</div>
 
       <!--コメント-->
 
-      <div id="comment-form">
-        <%= render "comments/comment_form", post: @post, comment: @comment %>
-      </div>
+  <div id="comment-form">
+    <%= render "comments/comment_form", post: @post, comment: @comment %>
+  </div>
 
   <br>
 
-    <div id="comments">
-      <%= render "comments/index", post: @post, comment: @comment %>
-    </div>
-
+  <div id="comments">
+    <%= render "comments/index", post: @post, comment: @comment %>
+  </div>
 
 <%= render "newpost" %>

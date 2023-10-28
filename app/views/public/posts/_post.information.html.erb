@@ -15,4 +15,13 @@
     <i class="fa-regular fa-clock" style="color: #4771b8;"></i>
     <%= posts.created_at.strftime('%Y/%m/%d %H:%M') %>
   </div>
+
+    <% if current_customer && current_customer.id == posts.customer.id %>
+    <div class ="index-trash">
+    <span><%= link_to public_post_path(posts.customer), method: :delete, data: { confirm: '本当に消しますか？' } do %>
+      <i class="fa-solid fa-trash" style="color: #d64359;"></i>
+      </div>
+      <% end %>
+    </span>
+  <% end %>
 </div>

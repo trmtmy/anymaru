@@ -13,7 +13,6 @@ a:hover {
 /*----------------------------------------TOPページ*/
 .slider {
   position: relative;
-  margin: 0 0 0 50px;
 }
 
 .col-9 {
@@ -88,7 +87,7 @@ p.title {
 
 .profile {
   width: 700px;
-  margin: 20px;
+  margin: 80px 80px 0 50px;
   border: 2px solid #BAD3FF;
   border-radius: 10px;
   box-shadow: 2px 2px 4px #666699;
@@ -245,6 +244,10 @@ p.title {
   padding: 10px 10px 0 10px;
 }
 
+.index-trash {
+ padding: 10px 10px 0 10px;
+}
+
 
 /*-----------------------------------------------------------notesページ*/
 .messege {
@@ -254,7 +257,7 @@ p.title {
 
 .messege-border {
   width: auto;
-  border-left: 3px solid black;
+  border-left: 3px solid #008BBB;
   margin: 30px;
   padding: 10px;
 }
@@ -449,12 +452,16 @@ header {
 
 // ------------Topページ
 
+.slider {
+  margin: 0;
+}
+
 .purpose {
   width: 90%;
   margin: 0 auto;
   margin-top: 100px;
   background: #D7EEFF;
-  padding: 50px 10px;
+  padding: 40px 10px;
   box-shadow: 2px 2px 4px gray;
   opacity: 0.8;
   z-index: 5;
@@ -466,9 +473,9 @@ header {
   /*↑透明度*/
   box-shadow: 2px 2px 4px gray;
   /*↑影*/
-  margin: -50px 0 0 20px ;
+  margin: -20px 0 0 0;
   background: #FFFFFF;
-  padding: 20px 30px;
+  padding: 25px 15px;
   position: absolute
 }
 
@@ -496,16 +503,24 @@ header {
 .index-bkm-btn{
   width: auto;
   height: 20px;
+  padding: 0 10px 0 7px;
 }
 
 .index-category {
   width: auto;
   height: 20px;
+  padding: 0 10px 0 0;
 }
 
-.index-clock{
-  width: 150px;
+.index-time{
+  width: auto;
   height: 20px;
+  padding: 0 10px 0 0;
+}
+
+.index-trash {
+  width: auto;
+  padding: 0 0 0 7px;
 }
 
 // -------------------------------------詳細ページ
@@ -541,8 +556,9 @@ header {
 }
 
 .profile {
-  width: 100%;
-  margin: 10px 0;
+  width: 96%;
+  margin: 0 auto;
+  margin-top: 10px;
   padding: 10px;
 }
 
@@ -560,6 +576,14 @@ header {
   margin-left: 8px;
 }
 
+// notes ページ
+.messege-border {
+  margin: 20px 0 20px 10px;
+}
+
+.conditions {
+  margin: 20px 0 20px 10px;
+}
 
 
 }
