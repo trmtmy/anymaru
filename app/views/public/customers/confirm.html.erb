@@ -1,10 +1,11 @@
 <br>
+  <%= image_tag("symbol.png",class: "danger",style: "display: block; margin: auto;")%>
+
   <div class = text-center>
     <h1 class ="check messege">本当に退会しますか？</h1>
       <p>
         退会すると、会員登録情報や<br>
         これまでの投稿が閲覧できなくなります。<br>
-        退会する場合は、「退会する」をクリックしてください。
       </p>
 
       <%= link_to "退会しない", public_customer_path(current_customer.id), :class => "btn btn-primary ms-3" %>

@@ -14,12 +14,12 @@ Rails.application.routes.draw do
   end
 
 
-  resources :posts,only: [:index,:create,:new,:show,:edit,:update,:destroy] do
+  resources :posts,only: [:index,:create,:show,:edit,:destroy] do
     resources :comments, only: [:create, :destroy]
   end
 
   namespace :public do
-    resources :posts,only: [:index,:create,:new,:show,:edit,:update,:destroy] do
+    resources :posts,only: [:index,:create,:show,:edit,:destroy] do
       resource :bookmarks, only: [:create, :destroy]
     end
 

@@ -10,6 +10,10 @@ a:hover {
   text-decoration: none;
 }
 
+.modal-dialog {
+  top: 96px;
+}
+
 /*----------------------------------------TOPページ*/
 .slider {
   position: relative;
@@ -63,6 +67,7 @@ p.title {
   position: fixed;
   bottom: 10px;
   right: 30px;
+  background-color: #F0F8FF;
   border-radius: 90%;
   box-shadow: 2px 2px 4px gray;
 }
@@ -70,6 +75,7 @@ p.title {
 .fixed_image {
   width: 90px;
   height: 80px;
+  margin: 25px 30px 30px 30px;
 }
 
 .fixed_btn:active {
@@ -132,15 +138,12 @@ p.title {
 }
 
 
-
-
-
 /*--------------------------------------------new投稿ページ*/
 .vertical-line {
   width: auto;
   padding: 15px;
   border-left: 4px solid #008BBB;
-  margin-left: 100px;
+  margin-left: 50px;
 }
 
 .sheets {
@@ -305,7 +308,7 @@ p.title {
 
 /*--------------------------------------------ヘッダー*/
 header {
-  width: auto;
+  width: 100%;
   height: 100px;
   position: -webkit-sticky;
   position: sticky;
@@ -381,9 +384,6 @@ header {
 
 /*----------------------------------------------------------投稿プレビュー*/
 
-.image-list {
-  display: flex;
-}
 
 .preview-size {
   height: auto;
@@ -403,6 +403,11 @@ footer {
 
 .signup-form {
   width: 40%;
+}
+
+.danger {
+  width: 200px;
+  height: auto;
 }
 
 /*------------------------------------------------レスポンシブ*/
@@ -457,6 +462,19 @@ header {
 .fixed_btn:active {
   box-shadow: 0px 0px 0px #a00;
   transform: translateY(3px);
+}
+
+// 退会ページ
+
+.check{
+  width: 900px;
+  margin: 0 auto;
+}
+
+.danger {
+  width: 200px;
+  height: auto;
+  margin: 0 auto;
 }
 
 

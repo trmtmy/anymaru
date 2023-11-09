@@ -13,13 +13,11 @@ before_action :authenticate_customer!, only: [:create]
     end
   end
 
-  def update
-  end
-
   def index
     @posts = Post.all.page(params[:page]).per(10).order(created_at: :desc)
     # ↑page～(ページネーション)order～(新着順)
     @customers = Customer.all
+    @post = Post.new
   end
 
   def show
@@ -31,10 +29,6 @@ before_action :authenticate_customer!, only: [:create]
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to public_posts_path
-  end
-
-  def new
-    @post = Post.new
   end
 
   private

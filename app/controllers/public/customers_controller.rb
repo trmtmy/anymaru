@@ -5,6 +5,7 @@ class Public::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @posts = @customer.posts.order(created_at: :desc)
     @bookmarks_posts = @customer.bookmarked_posts.order(created_at: :desc)
+    @post = Post.new
   end
 
   def edit

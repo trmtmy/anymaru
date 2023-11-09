@@ -1,6 +1,67 @@
 <% if current_customer %>
-  <button class="fixed_btn">
-    <%= link_to image_tag("new.png", class: "fixed_image"), new_public_post_path, style: "max-width: 100%; object-fit:cover; " %>
-  </button>
+
+<div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class = "vertical-line">
+          <div id="errors"><%= render "layouts/errors", post: @post %></div>
+
+
+            <%= form_with model: @post,url: public_posts_path, method: :post, local: true do |f| %>
+              <form>
+              <%= f.label :post_images, "投稿画像" %><br>
+              <%= f.file_field :post_images, id:"item-image", class: "form-control-file", multiple: true %>
+
+              <p class ="sheets">※最大3枚まで※</p>
+              <div class = "image-list" id="image-list"></div>
+              <div class = "preview-box">
+                <div id="post_images" style="display: none;">
+                  <p id="preview"></p>
+                </div>
+              </div>
+              <%= render "/public/posts/loadimage" %>
+
+
+              <br>
+
+              <%= f.label :introduction,"投稿文", class: "form-label" %><br>
+              <div class="form-group row">
+                <div class="col-8 col-md-8">
+                  <%= f.text_area :introduction,placeholder: "どうかしましたか？", maxlength: "300", class: "form-control w-100" , required: true%>
+                </div>
+              </div>
+              <div class = "category-flex">
+                <p>カテゴリー</p>
+                <%= f.radio_button :category, Post.categories.key(0), required: true %>
+                <%= f.label :category_searching,Post.categories_i18n[:searching] %>
+
+                <%= f.radio_button :category, Post.categories.key(1), required: true %>
+                <%= f.label :category_welcome,Post.categories_i18n[:welcome] %>
+
+                <%= f.radio_button :category, Post.categories.key(2), required: true %>
+                <%= f.label :category_protection,Post.categories_i18n[:protection] %>
+
+                <%= f.radio_button :category, Post.categories.key(3), required: true %>
+                <%= f.label :category_others,Post.categories_i18n[:others] %>
+                <br>
+                <%= f.submit '投稿', class: 'btn btn-info' %>
+              </div>
+            <% end %>
+            <br>
+            <div class="modal-footter">
+          <%= link_to "・初めてお迎えを希望する方へ", homes_notes_path %>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to "#", class: "fixed_btn", data: { toggle: "modal", target: "#postModal", backdrop: "true"} do %>
+  <%= image_tag("new.png", class: "fixed_image") %>
+<% end %>
+
   <% else %>
 <% end %>

@@ -1,5 +1,6 @@
 <div class = "text-center" >
-  コメント件数：<span id="comment_count"><%= post.comments.count %></span>
+  <i class="fa-regular fa-comment" style="color: #4771b8;"></i>
+  <span id="comment_count"><%= post.comments.count %></span>件
 </div>
 
 <% post.comments.each do |comment| %>
